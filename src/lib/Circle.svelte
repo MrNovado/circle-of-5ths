@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import type { BoundingBox } from "./Circle.types";
-  import { drawBase } from "./Circle.math.svelte";
+  import { drawBase } from "./Circle.logic.svelte";
 
   const { bounds } = $props<{ bounds: BoundingBox }>();
 
@@ -13,7 +13,7 @@
     drawBase(ctx, bounds);
 
     const highlightChord = (e: MouseEvent) => {
-      console.log(e.clientX, e.clientY);
+      // console.log(e);
     };
 
     canvas.addEventListener("mousemove", highlightChord);

@@ -4,4 +4,4 @@ export type Circles = [number, number, number, number];
 export type XCoord = number;
 export type YCoord = number;
 export type Radius = number;
-export type Center = [XCoord, YCoord];
+export type Coords = [XCoord, YCoord];
