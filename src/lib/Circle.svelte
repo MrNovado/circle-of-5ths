@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { BoundingBox } from "./Circle.types";
-  import { drawBase } from "./Circle.logic.svelte";
+  import type { BoundingBox, BoundingBoxExt } from "./Circle.types";
+  import { drawBase, toRel } from "./Circle.logic.svelte";
 
   const { bounds } = $props<{ bounds: BoundingBox }>();
 
@@ -10,10 +10,14 @@
 
   onMount(() => {
     const ctx = canvas.getContext("2d")!;
+    const boundRect = canvas.getBoundingClientRect();
+    const extBounds: BoundingBoxExt = { ...bounds, x: boundRect.x, y: boundRect.y };
+
+    // #
     drawBase(ctx, bounds);
 
     const highlightChord = (e: MouseEvent) => {
-      // console.log(e);
+      console.log(e.clientX, e.clientY, toRel(extBounds, e.clientX, e.clientY));
     };
 
     canvas.addEventListener("mousemove", highlightChord);

@@ -1,18 +1,33 @@
 <script lang="ts" context="module">
-  import type { BoundingBox, Circles, Coords, Radius, XCoord, YCoord } from "./Circle.types";
+  import type {
+    BoundingBox, //
+    BoundingBoxExt,
+    Circles,
+    Coords,
+    Radius,
+    XCoord,
+    YCoord,
+  } from "./Circle.types";
 
   export const NOTES = new Array(12).fill("𝅗𝅥");
   export const CIRCLES: Circles = [0.9, 0.65, 0.4, 0.15];
 
   const getRadius = (bounds: BoundingBox, r: Radius) => Math.floor((Math.min(bounds.w, bounds.h) / 2) * r);
-  const getCenter = (bounds: BoundingBox): Coords => [Math.floor(bounds.w / 2), Math.floor(bounds.h / 2)];
-  const toCart = (pivot: Coords, x: XCoord, y: YCoord): Coords => [pivot[0] + x, pivot[1] - y];
+  const getPivot = (bounds: BoundingBox): Coords => [Math.floor(bounds.w / 2), Math.floor(bounds.h / 2)];
+
+  export const toRel = (boundsExt: BoundingBoxExt, x: XCoord, y: YCoord): Coords => {
+    const pivot = getPivot(boundsExt);
+    return [
+      -(pivot[0] - x) - boundsExt.x, //
+      pivot[1] - y + boundsExt.y,
+    ];
+  };
 
   export const drawBase = (
     ctx: CanvasRenderingContext2D, //
     bounds: BoundingBox
   ) => {
-    const pivot = getCenter(bounds);
+    const pivot = getPivot(bounds);
     ctx.translate(...pivot);
     // ctx.rotate((Math.PI / 180) * 15);
     // ctx.save();
@@ -46,7 +61,7 @@
       const posEnd = chordRadWidth * chordPos;
 
       ctx.beginPath();
-      ctx.strokeStyle = "red";
+      ctx.strokeStyle = "blue";
       ctx.fillStyle = "red";
 
       // line start (left)
