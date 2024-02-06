@@ -1,6 +1,7 @@
 <script lang="ts">
+  import type { BoundingBox } from "./lib/common/types";
   import Circle from "./lib/Circle.svelte";
-  import type { BoundingBox } from "./lib/Circle.types";
+
   const BOUNDS: BoundingBox = { w: 1920 / 1.5, h: 1080 };
   const BOUNDS_STYLE = [
     `--box-width:${BOUNDS.w}px`, //

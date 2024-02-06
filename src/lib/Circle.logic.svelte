@@ -1,29 +1,9 @@
 <script lang="ts" context="module">
-  import type {
-    BoundingBox, //
-    BoundingBoxExt,
-    Circles,
-    Coords,
-    Radius,
-    XCoord,
-    YCoord,
-  } from "./Circle.types";
+  import type { BoundingBox } from "./common/types";
+  import { getPivot, CIRCLES, getRadius, NOTES } from "./common/logic.svelte";
+  import { drawChord } from "./Chord.logic.svelte";
 
-  export const NOTES = new Array(12).fill("𝅗𝅥");
-  export const CIRCLES: Circles = [0.9, 0.65, 0.4, 0.15];
-
-  const getRadius = (bounds: BoundingBox, r: Radius) => Math.floor((Math.min(bounds.w, bounds.h) / 2) * r);
-  const getPivot = (bounds: BoundingBox): Coords => [Math.floor(bounds.w / 2), Math.floor(bounds.h / 2)];
-
-  export const toRel = (boundsExt: BoundingBoxExt, x: XCoord, y: YCoord): Coords => {
-    const pivot = getPivot(boundsExt);
-    return [
-      -(pivot[0] - x) - boundsExt.x, //
-      pivot[1] - y + boundsExt.y,
-    ];
-  };
-
-  export const drawBase = (
+  export const drawCircle = (
     ctx: CanvasRenderingContext2D, //
     bounds: BoundingBox
   ) => {
@@ -54,44 +34,6 @@
     });
 
     // chord
-    {
-      const chordRadWidth = Math.PI / 6;
-      const chordPos = 4;
-      const posStart = chordRadWidth * (chordPos - 1);
-      const posEnd = chordRadWidth * chordPos;
-
-      ctx.beginPath();
-      ctx.strokeStyle = "blue";
-      ctx.fillStyle = "red";
-
-      // line start (left)
-      ctx.moveTo(Math.cos(posStart), -getRadius(bounds, CIRCLES[3]));
-      ctx.lineTo(Math.sin(posStart), -getRadius(bounds, CIRCLES[2]));
-      // ark top
-      ctx.arc(0, 0, getRadius(bounds, CIRCLES[2]), Math.PI * 1.5, Math.PI * 1.5 + chordRadWidth);
-
-      // line end (right)
-      ctx.moveTo(
-        Math.cos(posEnd) * -getRadius(bounds, CIRCLES[2]), //
-        Math.sin(posEnd) * -getRadius(bounds, CIRCLES[2])
-      );
-      ctx.lineTo(
-        Math.cos(posEnd) * -getRadius(bounds, CIRCLES[3]), //
-        Math.sin(posEnd) * -getRadius(bounds, CIRCLES[3])
-      );
-      // ark bottom
-      ctx.arc(
-        0,
-        0,
-        getRadius(bounds, CIRCLES[3]),
-        -chordRadWidth * (chordPos - 1) + chordRadWidth,
-        -chordRadWidth * (chordPos - 1),
-        true
-      );
-
-      ctx.stroke();
-      ctx.fill();
-      ctx.closePath();
-    }
+    drawChord(ctx, bounds);
   };
 </script>
