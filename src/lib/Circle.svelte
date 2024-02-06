@@ -2,33 +2,35 @@
   import { onMount } from "svelte";
   import type { BoundingBox, BoundingBoxExt } from "./common/types";
   import { toRel } from "./common/logic.svelte";
-  import { drawCircle } from "./Circle.logic.svelte";
+  import { drawCircleSetup } from "./Circle.logic.svelte";
 
   const { bounds } = $props<{ bounds: BoundingBox }>();
+  const { drawCircle } = drawCircleSetup(bounds);
 
   // TODO: should auto-scale to a perfect box?
-  let canvas: HTMLCanvasElement;
+  let canvasRef: HTMLCanvasElement;
 
   onMount(() => {
-    const ctx = canvas.getContext("2d")!;
-    const boundRect = canvas.getBoundingClientRect();
+    const ctx = canvasRef.getContext("2d")!;
+    const boundRect = canvasRef.getBoundingClientRect();
     const extBounds: BoundingBoxExt = { ...bounds, x: boundRect.x, y: boundRect.y };
+    const { ttRel } = toRel(extBounds);
 
     // #
-    drawCircle(ctx, bounds);
+    drawCircle(ctx);
 
     const highlightChord = (e: MouseEvent) => {
-      console.log(e.clientX, e.clientY, toRel(extBounds, e.clientX, e.clientY));
+      console.log(e.clientX, e.clientY, ttRel(e.clientX, e.clientY));
     };
 
-    canvas.addEventListener("mousemove", highlightChord);
+    canvasRef.addEventListener("mousemove", highlightChord);
     return () => {
-      canvas.removeEventListener("mousemove", highlightChord);
+      canvasRef.removeEventListener("mousemove", highlightChord);
     };
   });
 </script>
 
-<canvas bind:this={canvas} width={bounds.w} height={bounds.h} />
+<canvas bind:this={canvasRef} width={bounds.w} height={bounds.h} />
 
 <style>
   canvas {
