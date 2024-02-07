@@ -23,7 +23,7 @@
           ctx.stroke();
         });
 
-        // drawing sectors (by drawing lines actually)
+        // drawing sector lines
         NOTES.forEach((_, n, { length: slices }) => {
           ctx.beginPath();
           ctx.moveTo(0, 0);
