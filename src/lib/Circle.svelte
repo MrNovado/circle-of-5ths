@@ -98,11 +98,7 @@
       y="25.484146"
       id="lydian"
     >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-        x="204.67372"
-        y="25.484146">Lydian</tspan
-      >
+      Lydian
     </text>
     <text
       xml:space="preserve"
@@ -111,11 +107,7 @@
       y="14.676733"
       id="ionian"
     >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-        x="164.246"
-        y="14.676733">Ionian</tspan
-      >
+      Ionian
     </text>
     <text
       xml:space="preserve"
@@ -124,11 +116,7 @@
       y="24.81702"
       id="mixolydian"
     >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-        x="119.28182"
-        y="24.81702">Mixolydian</tspan
-      >
+      Mixolydian
     </text>
     <text
       xml:space="preserve"
@@ -137,11 +125,7 @@
       y="55.371311"
       id="dorian"
     >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-        x="92.863693"
-        y="55.371311">Dorian</tspan
-      >
+      Dorian
     </text>
     <text
       xml:space="preserve"
@@ -150,11 +134,7 @@
       y="95.932465"
       id="aeolian"
     >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-        x="81.38916"
-        y="95.932465">Aeolian</tspan
-      >
+      Aeolian
     </text>
     <text
       xml:space="preserve"
@@ -163,24 +143,30 @@
       y="136.49362"
       id="phrygian"
     >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-        x="91.129173"
-        y="136.49362">Phrygian</tspan
-      >
+      Phrygian
     </text>
     <text
-      xml:space="preserve"
       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
       x="122.08374"
       y="166.11392"
       id="locrian"
     >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-        x="122.08374"
-        y="166.11392">Locrian</tspan
-      >
+      Locrian
+    </text>
+    <text style="fill:gray;font-size:4.23333px;font-family:'Comic Sans MS';" x="165.08374" y="178.11392" id="unknown">
+      ???
+    </text>
+    <text style="fill:gray;font-size:4.23333px;font-family:'Comic Sans MS';" x="208.08374" y="167.11392" id="unknown">
+      ???
+    </text>
+    <text style="fill:gray;font-size:4.23333px;font-family:'Comic Sans MS';" x="235.08374" y="138.11392" id="unknown">
+      ???
+    </text>
+    <text style="fill:gray;font-size:4.23333px;font-family:'Comic Sans MS';" x="245.08374" y="98.11392" id="unknown">
+      ???
+    </text>
+    <text style="fill:gray;font-size:4.23333px;font-family:'Comic Sans MS';" x="235.08374" y="58.11392" id="unknown">
+      ???
     </text>
     <text
       xml:space="preserve"
@@ -1436,5 +1422,10 @@
     background: silver;
     width: 100%;
     height: 100%;
+  }
+
+  #chords #frame {
+    fill: none !important;
+    stroke: none !important;
   }
 </style>
