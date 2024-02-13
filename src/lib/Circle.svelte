@@ -6,7 +6,6 @@
   height="720"
   viewBox="0 0 338.66667 190.5"
   version="1.1"
-  id="svg1"
   xml:space="preserve"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns="http://www.w3.org/2000/svg"
@@ -178,8 +177,8 @@
       <tspan
         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
         x="182.52519"
-        y="28.953192">vii°</tspan
-      >
+        y="28.953192"
+      ></tspan>
     </text>
     <text
       xml:space="preserve"
@@ -1350,6 +1349,11 @@
     background: silver;
     width: 100%;
     height: 100%;
+  }
+
+  #scales tspan {
+    /* fill: silver !important; */
+    opacity: 0.4 !important;
   }
 
   #chords #frame {
