@@ -17,5 +17,11 @@
     "tslib": "^2.6.2",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
+  },
+  "dependencies": {
+    "@tonaljs/chord": "^6.0.0",
+    "@tonaljs/midi": "^4.9.3",
+    "@tonaljs/note": "^4.10.3",
+    "howler": "^2.2.4"
   }
 }
