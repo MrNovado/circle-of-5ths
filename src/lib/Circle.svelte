@@ -918,21 +918,15 @@
     </g>
     <!-- MINOR -->
     <g id="minor">
-      <g id="minor-12" transform="matrix(0.6411946,-0.36991849,0.35671263,0.62447891,27.276628,98.924186)">
+      <g id="minor-12">
         <text
           xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="146.18228"
           y="60.457291"
           id="sec-12-c-2"
-          transform="matrix(1.1730231,0.69485604,-0.67005011,1.2044219,34.288046,-138.09979)"
         >
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:1"
-            x="146.18228"
-            y="60.457291"
-            >D<tspan style="font-size:65%;baseline-shift:sub" id="tspan6">m</tspan>
-          </tspan>
+          D<tspan style="font-size:65%;baseline-shift:sub" id="tspan6">m</tspan>
         </text>
         <path
           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
@@ -940,21 +934,15 @@
           id="frame"
         />
       </g>
-      <g id="minor-11" transform="matrix(0.36736246,-0.64305791,0.62313075,0.37851605,48.439091,169.92228)">
+      <g id="minor-11">
         <text
           xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="130.04269"
           y="76.596878"
           id="sec-11-c-2"
-          transform="matrix(0.70126506,1.1913736,-1.1544552,0.68060115,162.19902,-173.35835)"
         >
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:1"
-            x="130.04269"
-            y="76.596878"
-            >G<tspan style="font-size:65%;baseline-shift:sub" id="tspan60">m</tspan>
-          </tspan>
+          G<tspan style="font-size:65%;baseline-shift:sub" id="tspan60">m</tspan>
         </text>
         <path
           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
@@ -962,22 +950,15 @@
           id="frame"
         />
       </g>
-      <g id="minor-10" transform="matrix(-0.00319801,-0.73288592,0.73069753,0.01290627,101.80488,219.7764)">
+      <g id="minor-10">
         <text
           xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="124.22187"
           y="96.969795"
           id="sec-10-c-2"
-          transform="matrix(0.0241024,1.3686608,-1.364574,-0.00597227,297.44742,-138.02379)"
         >
-          <tspan
-            id="tspan83"
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:1"
-            x="124.22187"
-            y="96.969795"
-            >C<tspan style="font-size:65%;baseline-shift:sub" id="tspan59">m</tspan>
-          </tspan>
+          C<tspan style="font-size:65%;baseline-shift:sub" id="tspan59">m</tspan>
         </text>
         <path
           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
@@ -985,21 +966,15 @@
           id="frame"
         />
       </g>
-      <g id="minor-9" transform="matrix(-0.37403759,-0.64076956,0.62885721,-0.349608,174.35519,238.56051)">
+      <g id="minor-9">
         <text
           xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="129.64583"
           y="118.13646"
           id="sec-9-c-2"
-          transform="matrix(-0.65504122,1.2005746,-1.1782551,-0.70081359,395.29496,-42.139958)"
         >
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:1"
-            x="129.64583"
-            y="118.13646"
-            >F<tspan style="font-size:65%;baseline-shift:sub" id="tspan58">m</tspan>
-          </tspan>
+          F<tspan style="font-size:65%;baseline-shift:sub" id="tspan58">m</tspan>
         </text>
         <path
           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
@@ -1007,21 +982,15 @@
           id="frame"
         />
       </g>
-      <g id="minor-8" transform="matrix(-0.64805868,-0.37306195,0.36206551,-0.62402522,246.41372,218.5843)">
+      <g id="minor-8">
         <text
           xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="143.80104"
           y="132.55624"
           id="sec-8-c-2"
-          transform="matrix(-1.1567208,0.69152417,-0.67114068,-1.2012703,431.73269,92.177783)"
         >
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:1"
-            x="143.80104"
-            y="132.55624"
-            >A<tspan style="font-size:65%;baseline-shift:sub" id="tspan57">#m</tspan>
-          </tspan>
+          A<tspan style="font-size:65%;baseline-shift:sub" id="tspan57">#m</tspan>
         </text>
         <path
           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
@@ -1029,21 +998,15 @@
           id="frame"
         />
       </g>
-      <g id="minor-7" transform="matrix(-0.75496134,0.01297313,-0.00366361,-0.72474524,299.56622,162.08156)">
+      <g id="minor-7">
         <text
           xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="165.2323"
           y="137.98021"
           id="sec-7-c-2"
-          transform="matrix(-1.3244561,-0.02370811,0.00669517,-1.3796754,395.67714,230.72208)"
         >
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:1"
-            x="165.2323"
-            y="137.98021"
-            >D<tspan style="font-size:65%;baseline-shift:sub" id="tspan56">#m</tspan>
-          </tspan>
+          D<tspan style="font-size:65%;baseline-shift:sub" id="tspan56">#m</tspan>
         </text>
         <path
           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
@@ -1051,21 +1014,15 @@
           id="frame"
         />
       </g>
-      <g id="minor-6" transform="matrix(-0.62083077,0.37456119,-0.36395525,-0.62065899,311.06866,90.673594)">
+      <g id="minor-6">
         <text
           xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="185.34062"
           y="133.4823"
           id="sec-6-c-2"
-          transform="matrix(-1.1898049,-0.71803477,0.69770316,-1.1901342,306.84776,331.27186)"
         >
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:1"
-            x="185.34062"
-            y="133.4823"
-            >G<tspan style="font-size:65%;baseline-shift:sub" id="tspan55">#m</tspan>
-          </tspan>
+          G<tspan style="font-size:65%;baseline-shift:sub" id="tspan55">#m</tspan>
         </text>
         <path
           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
@@ -1073,21 +1030,15 @@
           id="frame"
         />
       </g>
-      <g id="minor-5" transform="matrix(-0.3514538,0.63419805,-0.62491837,-0.35659221,289.83771,21.256787)">
+      <g id="minor-5">
         <text
           xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="201.08333"
           y="117.87188"
           id="sec-5-c-2"
-          transform="matrix(-0.6835882,-1.2157593,1.1979702,-0.67373786,172.66464,366.6944)"
         >
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:1"
-            x="201.08333"
-            y="117.87188"
-            >C<tspan style="font-size:65%;baseline-shift:sub" id="tspan54">#m</tspan>
-          </tspan>
+          C<tspan style="font-size:65%;baseline-shift:sub" id="tspan54">#m</tspan>
         </text>
         <path
           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
@@ -1095,21 +1046,15 @@
           id="frame"
         />
       </g>
-      <g id="minor-4" transform="matrix(0.01384086,0.74529255,-0.71937337,0.01016392,236.45825,-32.365595)">
+      <g id="minor-4">
         <text
           xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="205.58124"
           y="97.498955"
           id="sec-4-c-2"
-          transform="matrix(0.01895249,-1.3897341,1.341403,0.02580881,38.933836,329.4494)"
         >
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:1"
-            x="205.58124"
-            y="97.498955"
-            >F<tspan style="font-size:65%;baseline-shift:sub" id="tspan53">#m</tspan>
-          </tspan>
+          F<tspan style="font-size:65%;baseline-shift:sub" id="tspan53">#m</tspan>
         </text>
         <path
           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
@@ -1117,21 +1062,15 @@
           id="frame"
         />
       </g>
-      <g id="minor-3" transform="matrix(0.37034106,0.62131624,-0.62264238,0.36489909,166.33607,-45.259581)">
+      <g id="minor-3">
         <text
           xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="202.00938"
           y="75.67083"
           id="sec-3-c-2"
-          transform="matrix(0.69904719,-1.1902726,1.1928131,0.70947252,-62.290541,230.09568)"
         >
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:1"
-            x="202.00938"
-            y="75.67083"
-            >B<tspan style="font-size:65%;baseline-shift:sub" id="tspan52">m</tspan>
-          </tspan>
+          B<tspan style="font-size:65%;baseline-shift:sub" id="tspan52">m</tspan>
         </text>
         <path
           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
@@ -1139,21 +1078,15 @@
           id="frame"
         />
       </g>
-      <g id="minor-2" transform="matrix(0.62792944,0.35625291,-0.35850925,0.62389327,97.379598,-24.725335)">
+      <g id="minor-2">
         <text
           xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="185.86978"
           y="61.647915"
           id="sec-2-c-2"
-          transform="matrix(1.2009936,-0.68578634,0.69012979,1.2087633,-99.888587,96.668673)"
         >
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:1"
-            x="185.86978"
-            y="61.647915"
-            >E<tspan style="font-size:65%;baseline-shift:sub" id="tspan51">m</tspan>
-          </tspan>
+          E<tspan style="font-size:65%;baseline-shift:sub" id="tspan51">m</tspan>
         </text>
         <path
           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
@@ -1161,21 +1094,15 @@
           id="frame"
         />
       </g>
-      <g id="minor-1" transform="matrix(0.71897067,0,0,0.71897067,47.97641,26.920075)">
+      <g id="minor-1">
         <text
           xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="165.76144"
           y="56.620834"
           id="sec-1-c-2"
-          transform="matrix(1.3908773,0,0,1.3908773,-66.729301,-37.442522)"
         >
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:1"
-            x="165.76144"
-            y="56.620834"
-            >A<tspan style="font-size:65%;baseline-shift:sub" id="tspan50">m</tspan>
-          </tspan>
+          A<tspan style="font-size:65%;baseline-shift:sub" id="tspan50">m</tspan>
         </text>
         <path
           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
@@ -1419,6 +1346,7 @@
 
 <style>
   svg {
+    user-select: none;
     background: silver;
     width: 100%;
     height: 100%;
