@@ -27,6 +27,9 @@
     currentKey: "ch-current-key",
   };
 
+  const CHORD_SEQ_TYPE = ["dim", "minor", "major"];
+
+  let sharps = $state(SHARPS_ARR_SHARP_ONLY);
   let modesDesc = $state(MODES_ARR_DESC);
   let modesDeg = $state(MODES_ARR);
 
@@ -120,64 +123,31 @@
 
   <!-- CHORDS -->
   <g id="chords">
-    {#each SHARPS_ARR_SHARP_ONLY as chordSec, chordSecInd (chordSec.map((s) => s.ch).join("-"))}
-      <g
-        id="dim"
-        class={clsx({
-          [CHORD_CLS.selected]: selectedChord === chordSec[0].ch,
-          [CHORD_CLS.idle]: selectedChord !== chordSec[0].ch,
-          [CHORD_CLS.hover]: hoveredChord === chordSec[0].ch,
-          [CHORD_CLS.current]: CURRENT_SEQ[0] === chordSecInd,
-          [CHORD_CLS.currentKey]: isFirstDegree(modesDeg[chordSecInd][0]),
-        })}
-      >
-        <path
-          id="frame"
-          d={SH_C[chordSecInd][0].d}
-          on:click={onChordClick(chordSec[0].ch)}
-          on:mouseenter={onChordHover(chordSec[0].ch)}
-          on:mouseleave={onChordHover("")}
-        />
-        <text x={SH_C[chordSecInd][0].x} y={SH_C[chordSecInd][0].y}>{chordSec[0].ch}</text>
-      </g>
-      <g
-        id="minor"
-        class={clsx({
-          [CHORD_CLS.selected]: selectedChord === chordSec[1].ch,
-          [CHORD_CLS.idle]: selectedChord !== chordSec[1].ch,
-          [CHORD_CLS.hover]: hoveredChord === chordSec[1].ch,
-          [CHORD_CLS.current]: CURRENT_SEQ.includes(chordSecInd),
-          [CHORD_CLS.currentKey]: isFirstDegree(modesDeg[chordSecInd][1]),
-        })}
-      >
-        <path
-          id="frame"
-          d={SH_C[chordSecInd][1].d}
-          on:click={onChordClick(chordSec[1].ch)}
-          on:mouseenter={onChordHover(chordSec[1].ch)}
-          on:mouseleave={onChordHover("")}
-        />
-        <text x={SH_C[chordSecInd][1].x} y={SH_C[chordSecInd][1].y}>{chordSec[1].ch}</text>
-      </g>
-      <g
-        id="major"
-        class={clsx({
-          [CHORD_CLS.selected]: selectedChord === chordSec[2].ch,
-          [CHORD_CLS.idle]: selectedChord !== chordSec[2].ch,
-          [CHORD_CLS.hover]: hoveredChord === chordSec[2].ch,
-          [CHORD_CLS.current]: CURRENT_SEQ.includes(chordSecInd),
-          [CHORD_CLS.currentKey]: isFirstDegree(modesDeg[chordSecInd][2]),
-        })}
-      >
-        <path
-          id="frame"
-          d={SH_C[chordSecInd][2].d}
-          on:click={onChordClick(chordSec[2].ch)}
-          on:mouseenter={onChordHover(chordSec[2].ch)}
-          on:mouseleave={onChordHover("")}
-        />
-        <text x={SH_C[chordSecInd][2].x} y={SH_C[chordSecInd][2].y}>{chordSec[2].ch}</text>
-      </g>
+    {#each sharps as chordSec, chordSecInd (chordSec.map((s) => s.ch).join("-"))}
+      {#each chordSec as chord, chordInd (`${chord.ch}-${chordInd}`)}
+        <g
+          id={CHORD_SEQ_TYPE[chordInd]}
+          class={clsx({
+            [CHORD_CLS.selected]: selectedChord === chord.ch,
+            [CHORD_CLS.idle]: selectedChord !== chord.ch,
+            [CHORD_CLS.hover]: hoveredChord === chord.ch,
+            [CHORD_CLS.current]:
+              CHORD_SEQ_TYPE[chordInd] === "dim" //
+                ? CURRENT_SEQ[0] === chordSecInd
+                : CURRENT_SEQ.includes(chordSecInd),
+            [CHORD_CLS.currentKey]: isFirstDegree(modesDeg[chordSecInd][chordInd]),
+          })}
+        >
+          <path
+            id="frame"
+            d={SH_C[chordSecInd][chordInd].d}
+            on:click={onChordClick(chord.ch)}
+            on:mouseenter={onChordHover(chord.ch)}
+            on:mouseleave={onChordHover("")}
+          />
+          <text x={SH_C[chordSecInd][chordInd].x} y={SH_C[chordSecInd][chordInd].y}>{chord.ch}</text>
+        </g>
+      {/each}
     {/each}
   </g>
 
