@@ -22,6 +22,7 @@
     "@tonaljs/chord": "^6.0.0",
     "@tonaljs/midi": "^4.9.3",
     "@tonaljs/note": "^4.10.3",
+    "clsx": "^2.1.0",
     "howler": "^2.2.4"
   }
 }

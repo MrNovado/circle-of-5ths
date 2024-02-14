@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { clsx } from "clsx";
+
   import {
     MODES_ARR_DESC, //
     MODES_DESC_COORDS as M_DSC_C,
@@ -24,6 +26,11 @@
   let selectedChord = $state("C");
   let onChordClick = (chord: string) => () => {
     selectedChord = chord;
+  };
+
+  let hoveredChord = $state("");
+  let onChordHover = (chord: string) => () => {
+    hoveredChord = chord;
   };
 </script>
 
@@ -106,17 +113,56 @@
 
   <!-- CHORDS -->
   <g id="chords">
-    {#each SHARPS_ARR_SHARP_ONLY as chordSec, chordSecInd}
-      <g id="dim" class={selectedChord === chordSec[0].ch ? CHORD_CLS.selected : CHORD_CLS.idle}>
-        <path id="frame" d={SH_C[chordSecInd][0].d} on:click={onChordClick(chordSec[0].ch)} />
+    {#each SHARPS_ARR_SHARP_ONLY as chordSec, chordSecInd (chordSec.map((s) => s.ch).join("-"))}
+      <g
+        id="dim"
+        class={clsx({
+          [CHORD_CLS.selected]: selectedChord === chordSec[0].ch,
+          [CHORD_CLS.idle]: selectedChord !== chordSec[0].ch,
+          [CHORD_CLS.hover]: hoveredChord === chordSec[0].ch,
+        })}
+      >
+        <path
+          id="frame"
+          d={SH_C[chordSecInd][0].d}
+          on:click={onChordClick(chordSec[0].ch)}
+          on:mouseenter={onChordHover(chordSec[0].ch)}
+          on:mouseleave={onChordHover("")}
+        />
         <text x={SH_C[chordSecInd][0].x} y={SH_C[chordSecInd][0].y}>{chordSec[0].ch}</text>
       </g>
-      <g id="minor" class={selectedChord === chordSec[1].ch ? CHORD_CLS.selected : CHORD_CLS.idle}>
-        <path id="frame" d={SH_C[chordSecInd][1].d} on:click={onChordClick(chordSec[1].ch)} />
+      <g
+        id="minor"
+        class={clsx({
+          [CHORD_CLS.selected]: selectedChord === chordSec[1].ch,
+          [CHORD_CLS.idle]: selectedChord !== chordSec[1].ch,
+          [CHORD_CLS.hover]: hoveredChord === chordSec[1].ch,
+        })}
+      >
+        <path
+          id="frame"
+          d={SH_C[chordSecInd][1].d}
+          on:click={onChordClick(chordSec[1].ch)}
+          on:mouseenter={onChordHover(chordSec[1].ch)}
+          on:mouseleave={onChordHover("")}
+        />
         <text x={SH_C[chordSecInd][1].x} y={SH_C[chordSecInd][1].y}>{chordSec[1].ch}</text>
       </g>
-      <g id="major" class={selectedChord === chordSec[2].ch ? CHORD_CLS.selected : CHORD_CLS.idle}>
-        <path id="frame" d={SH_C[chordSecInd][2].d} on:click={onChordClick(chordSec[2].ch)} />
+      <g
+        id="major"
+        class={clsx({
+          [CHORD_CLS.selected]: selectedChord === chordSec[2].ch,
+          [CHORD_CLS.idle]: selectedChord !== chordSec[2].ch,
+          [CHORD_CLS.hover]: hoveredChord === chordSec[2].ch,
+        })}
+      >
+        <path
+          id="frame"
+          d={SH_C[chordSecInd][2].d}
+          on:click={onChordClick(chordSec[2].ch)}
+          on:mouseenter={onChordHover(chordSec[2].ch)}
+          on:mouseleave={onChordHover("")}
+        />
         <text x={SH_C[chordSecInd][2].x} y={SH_C[chordSecInd][2].y}>{chordSec[2].ch}</text>
       </g>
     {/each}
@@ -170,6 +216,10 @@
     font-size: 3.8px;
   }
 
+  #scales text {
+    pointer-events: none;
+  }
+
   #chords {
     font-family: "Comic Sans MS";
   }
@@ -198,7 +248,7 @@
     fill: rgba(0, 0, 0, 0);
   }
 
-  #chords .ch-selected #frame {
+  #chords .ch-selected.ch-selected #frame {
     fill: red;
   }
 
