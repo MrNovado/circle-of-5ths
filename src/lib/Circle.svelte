@@ -42,6 +42,8 @@
   let onChordHover = (chord: string) => () => {
     hoveredChord = chord;
   };
+
+  // TODO: uuid for $keys
 </script>
 
 <svg
@@ -160,9 +162,9 @@
 
     <!-- scales-chords-degrees -->
     {#each modesDeg as modeDeg, modeDegSecInd (modeDeg.join("-"))}
-      <text id="degree" x={M_DEG_C[modeDegSecInd][0].x} y={M_DEG_C[modeDegSecInd][0].y}>{modeDeg[0]}</text>
-      <text id="degree" x={M_DEG_C[modeDegSecInd][1].x} y={M_DEG_C[modeDegSecInd][1].y}>{modeDeg[1]}</text>
-      <text id="degree" x={M_DEG_C[modeDegSecInd][2].x} y={M_DEG_C[modeDegSecInd][2].y}>{modeDeg[2]}</text>
+      {#each modeDeg as deg, degInd (`${deg}-${degInd}`)}
+        <text id="degree" x={M_DEG_C[modeDegSecInd][degInd].x} y={M_DEG_C[modeDegSecInd][degInd].y}>{deg}</text>
+      {/each}
     {/each}
   </g>
 
@@ -196,7 +198,8 @@
   }
 
   #scales #degree {
-    font-size: 3.8px;
+    font-size: 3px;
+    stroke-width: 0.05px;
   }
 
   #scales text {
@@ -250,6 +253,7 @@
   }
 
   #chords .ch-current.ch-current-key text {
-    fill: red;
+    fill: crimson;
+    font-weight: bolder;
   }
 </style>
