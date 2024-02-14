@@ -1,12 +1,15 @@
 import { type ChordsSeq, seqToRec } from "../common";
 
+export const MODES_F_DEG = ["i", "I", "i°", "#i", "#I", "#i°"];
+export const isFirstDegree = (d: string) => Boolean(MODES_F_DEG.find((fd) => fd === d));
+
 export const MODES_ARR: ChordsSeq = [
   ["vii°", "vi", "I"],
   ["#iv°", "iii", "V"],
   ["#i°", "vii", "II"],
   ["#v°", "#iv", "VI"],
   ["#ii°", "#i", "III"],
-  ["vi°", "v#", "VII"],
+  ["vi°", "#v", "VII"],
   ["iv°", "biii", "bV"],
   ["i°", "bvii", "bII"],
   ["v°", "iv", "bVI"],

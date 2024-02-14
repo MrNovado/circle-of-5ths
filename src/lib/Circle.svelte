@@ -6,6 +6,7 @@
     MODES_DESC_COORDS as M_DSC_C,
     MODES_ARR,
     MODES_DEG_COORDS as M_DEG_C,
+    isFirstDegree,
   } from "./components/Modes";
 
   import {
@@ -23,6 +24,7 @@
     relevant: "ch-relevant",
     hover: "ch-hover",
     current: "ch-current",
+    currentKey: "ch-current-key",
   };
 
   let modesDesc = $state(MODES_ARR_DESC);
@@ -126,6 +128,7 @@
           [CHORD_CLS.idle]: selectedChord !== chordSec[0].ch,
           [CHORD_CLS.hover]: hoveredChord === chordSec[0].ch,
           [CHORD_CLS.current]: CURRENT_SEQ[0] === chordSecInd,
+          [CHORD_CLS.currentKey]: isFirstDegree(modesDeg[chordSecInd][0]),
         })}
       >
         <path
@@ -144,6 +147,7 @@
           [CHORD_CLS.idle]: selectedChord !== chordSec[1].ch,
           [CHORD_CLS.hover]: hoveredChord === chordSec[1].ch,
           [CHORD_CLS.current]: CURRENT_SEQ.includes(chordSecInd),
+          [CHORD_CLS.currentKey]: isFirstDegree(modesDeg[chordSecInd][1]),
         })}
       >
         <path
@@ -162,6 +166,7 @@
           [CHORD_CLS.idle]: selectedChord !== chordSec[2].ch,
           [CHORD_CLS.hover]: hoveredChord === chordSec[2].ch,
           [CHORD_CLS.current]: CURRENT_SEQ.includes(chordSecInd),
+          [CHORD_CLS.currentKey]: isFirstDegree(modesDeg[chordSecInd][2]),
         })}
       >
         <path
@@ -272,5 +277,9 @@
     fill: aquamarine;
     stroke: black;
     stroke-width: 0.05px;
+  }
+
+  #chords .ch-current.ch-current-key text {
+    fill: red;
   }
 </style>
