@@ -10,6 +10,8 @@ Using `tonal` & `howler` to play selected chords (`wip`).
 
 Demo: https://mrnovado.github.io/circle-of-5ths/
 
+Inspired by: [Mike George youtube series about geometry of music](https://www.youtube.com/live/t2M0eTcsh6Y?si=_len-8ih2D_tP5cc&t=1592)
+
 ![image](https://github.com/MrNovado/circle-of-5ths/assets/4604289/ef66053e-c0e8-4e17-ac7b-1a5f7fabcdb9)
 
 Interactive `circle of 5ths` to help explore music.
