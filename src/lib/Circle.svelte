@@ -286,7 +286,7 @@
   }
 
   #chords .ch-relevant #frame {
-    fill: pink;
+    fill: rgba(249, 229, 233, 0.3);
   }
 
   #chords .ch-current text {
