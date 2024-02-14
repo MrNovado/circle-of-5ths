@@ -11,8 +11,20 @@
     SHARPS_COORDS as SH_C,
   } from "./components/Sharps";
 
+  const CHORD_CLS = {
+    selected: "ch-selected",
+    idle: "ch-idle",
+    relevant: "ch-relevant",
+    hover: "ch-hover",
+  };
+
   let modesDesc = $state(MODES_ARR_DESC);
   let modesDeg = $state(MODES_ARR);
+
+  let selectedChord = $state("C");
+  let onChordClick = (chord: string) => () => {
+    selectedChord = chord;
+  };
 </script>
 
 <svg
@@ -92,6 +104,24 @@
     />
   </g>
 
+  <!-- CHORDS -->
+  <g id="chords">
+    {#each SHARPS_ARR_SHARP_ONLY as chordSec, chordSecInd}
+      <g id="dim" class={selectedChord === chordSec[0].ch ? CHORD_CLS.selected : CHORD_CLS.idle}>
+        <path id="frame" d={SH_C[chordSecInd][0].d} on:click={onChordClick(chordSec[0].ch)} />
+        <text x={SH_C[chordSecInd][0].x} y={SH_C[chordSecInd][0].y}>{chordSec[0].ch}</text>
+      </g>
+      <g id="minor" class={selectedChord === chordSec[1].ch ? CHORD_CLS.selected : CHORD_CLS.idle}>
+        <path id="frame" d={SH_C[chordSecInd][1].d} on:click={onChordClick(chordSec[1].ch)} />
+        <text x={SH_C[chordSecInd][1].x} y={SH_C[chordSecInd][1].y}>{chordSec[1].ch}</text>
+      </g>
+      <g id="major" class={selectedChord === chordSec[2].ch ? CHORD_CLS.selected : CHORD_CLS.idle}>
+        <path id="frame" d={SH_C[chordSecInd][2].d} on:click={onChordClick(chordSec[2].ch)} />
+        <text x={SH_C[chordSecInd][2].x} y={SH_C[chordSecInd][2].y}>{chordSec[2].ch}</text>
+      </g>
+    {/each}
+  </g>
+
   <!-- SCALES -->
   <g id="scales">
     <!-- scales-descriptors -->
@@ -104,24 +134,6 @@
       <text id="degree" x={M_DEG_C[modeDegSecInd][0].x} y={M_DEG_C[modeDegSecInd][0].y}>{modeDeg[0]}</text>
       <text id="degree" x={M_DEG_C[modeDegSecInd][1].x} y={M_DEG_C[modeDegSecInd][1].y}>{modeDeg[1]}</text>
       <text id="degree" x={M_DEG_C[modeDegSecInd][2].x} y={M_DEG_C[modeDegSecInd][2].y}>{modeDeg[2]}</text>
-    {/each}
-  </g>
-
-  <!-- CHORDS -->
-  <g id="chords">
-    {#each SHARPS_ARR_SHARP_ONLY as chordSec, chordSecInd}
-      <g id="dim">
-        <path id="frame" d={SH_C[chordSecInd][0].d} />
-        <text x={SH_C[chordSecInd][0].x} y={SH_C[chordSecInd][0].y}>{chordSec[0].ch}</text>
-      </g>
-      <g id="minor">
-        <path id="frame" d={SH_C[chordSecInd][1].d} />
-        <text x={SH_C[chordSecInd][1].x} y={SH_C[chordSecInd][1].y}>{chordSec[1].ch}</text>
-      </g>
-      <g id="major">
-        <path id="frame" d={SH_C[chordSecInd][2].d} />
-        <text x={SH_C[chordSecInd][2].x} y={SH_C[chordSecInd][2].y}>{chordSec[2].ch}</text>
-      </g>
     {/each}
   </g>
 
@@ -160,8 +172,6 @@
 
   #chords {
     font-family: "Comic Sans MS";
-    fill: #000000;
-    stroke: none;
   }
 
   #chords #dim {
@@ -177,7 +187,26 @@
   }
 
   #chords #frame {
-    fill: none !important;
-    stroke: none !important;
+    cursor: pointer;
+  }
+
+  #chords text {
+    pointer-events: none;
+  }
+
+  #chords .ch-idle #frame {
+    fill: rgba(0, 0, 0, 0);
+  }
+
+  #chords .ch-selected #frame {
+    fill: red;
+  }
+
+  #chords .ch-hover #frame {
+    fill: rgba(255, 0, 0, 0.2);
+  }
+
+  #chords .ch-relevant #frame {
+    fill: pink;
   }
 </style>
