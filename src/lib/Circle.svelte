@@ -46,6 +46,18 @@
   // TODO: uuid for $keys
 </script>
 
+{#snippet chordSnippet(ch: string)}
+  {#if ch.includes('#') && ch.includes("°")}
+    {ch.slice(0, ch.indexOf("#"))}<tspan>{ch.slice(ch.indexOf("#"), ch.indexOf("°"))}</tspan>{ch.slice(ch.indexOf("°"))}
+  {:else if ch.includes('#')}  
+    {ch.slice(0, ch.indexOf("#"))}<tspan>{ch.slice(ch.indexOf("#"))}</tspan>
+  {:else if ch.includes('m')}  
+    {ch.slice(0, ch.indexOf("m"))}<tspan>{ch.slice(ch.indexOf("m"))}</tspan>
+  {:else}
+    {ch}
+  {/if}
+{/snippet}
+
 <svg
   width="1280"
   height="720"
@@ -147,7 +159,7 @@
             on:mouseenter={onChordHover(chord.ch)}
             on:mouseleave={onChordHover("")}
           />
-          <text x={SH_C[chordSecInd][chordInd].x} y={SH_C[chordSecInd][chordInd].y}>{chord.ch}</text>
+          <text x={SH_C[chordSecInd][chordInd].x} y={SH_C[chordSecInd][chordInd].y}>{@render chordSnippet(chord.ch)}</text>
         </g>
       {/each}
     {/each}
@@ -187,7 +199,7 @@
   }
 
   #scales {
-    font-family: "Comic Sans MS";
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     fill: #ffdd55;
     stroke: #28220b;
     stroke-width: 0.165;
@@ -207,7 +219,7 @@
   }
 
   #chords {
-    font-family: "Comic Sans MS";
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
   #chords #dim {
@@ -228,6 +240,13 @@
 
   #chords text {
     pointer-events: none;
+  }
+
+  /* ! using :global coz preview does not scope snippets properly yet ! */
+  #chords text :global(tspan) {
+    /* baseline supposedly interchangeable /w vertical-align, but alas */
+    baseline-shift: sub;
+    font-size: 0.6em;
   }
 
   #chords .ch-idle #frame {
