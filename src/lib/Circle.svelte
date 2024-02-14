@@ -1,4 +1,10 @@
 <script lang="ts">
+  import {
+    MODES_ARR_DESC, //
+    MODES_DESC_COORDS,
+  } from "./components/Modes";
+
+  let modesDesc = $state(MODES_ARR_DESC);
 </script>
 
 <svg
@@ -90,18 +96,9 @@
   <!-- SCALES -->
   <g id="scales" style="display:inline">
     <!-- scales-descriptors -->
-    <text x="204.67372" y="25.484146" id="description"> Lydian </text>
-    <text x="164.246" y="14.676733" id="description"> Ionian </text>
-    <text x="119.28182" y="24.81702" id="description"> Mixolydian </text>
-    <text x="92.863693" y="55.371311" id="description"> Dorian </text>
-    <text x="81.38916" y="95.932465" id="description"> Aeolian </text>
-    <text x="91.129173" y="136.49362" id="description"> Phrygian </text>
-    <text x="122.08374" y="166.11392" id="description"> Locrian </text>
-    <text x="165.08374" y="178.11392" id="description"> ??? </text>
-    <text x="208.08374" y="167.11392" id="description"> ??? </text>
-    <text x="235.08374" y="138.11392" id="description"> ??? </text>
-    <text x="245.08374" y="98.11392" id="description"> ??? </text>
-    <text x="235.08374" y="58.11392" id="description"> ??? </text>
+    {#each modesDesc as modeDesc, modeDescInd}
+      <text id="description" x={MODES_DESC_COORDS[modeDescInd].x} y={MODES_DESC_COORDS[modeDescInd].y}>{modeDesc}</text>
+    {/each}
 
     <!-- scales-chords-degrees -->
     <text x="182.52519" y="28.953192" id="degree">vii°</text>
