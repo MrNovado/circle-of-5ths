@@ -2,9 +2,12 @@
   import {
     MODES_ARR_DESC, //
     MODES_DESC_COORDS,
+    MODES_ARR,
+    MODES_DEG_COORDS,
   } from "./components/Modes";
 
   let modesDesc = $state(MODES_ARR_DESC);
+  let modesDeg = $state(MODES_ARR);
 </script>
 
 <svg
@@ -101,110 +104,17 @@
     {/each}
 
     <!-- scales-chords-degrees -->
-    <text x="182.52519" y="28.953192" id="degree">vii°</text>
-    <text x="211.6118" y="45.631298" id="degree"> #iv° </text>
-    <text x="232.55951" y="75.518463" id="degree">
-      <tspan style="font-size:65%;baseline-shift:sub" id="tspan103">#</tspan>i°
-    </text>
-    <text x="234.16061" y="111.54317" id="degree">
-      <tspan style="font-size:65%;baseline-shift:sub" id="tspan104">#</tspan>v°
-    </text>
-    <text x="217.61592" y="141.96402" id="degree">
-      <tspan style="font-size:65%;baseline-shift:sub" id="tspan107">#</tspan>ii°
-    </text>
-    <text x="189.59669" y="162.11121" id="degree">
-      <tspan x="189.59669" y="162.11121">vi°</tspan>
-    </text>
-    <text x="153.0383" y="163.84572" id="degree">
-      <tspan x="153.0383" y="163.84572">iv°</tspan>
-    </text>
-    <text x="121.68346" y="147.03418" id="degree">
-      <tspan x="121.68346" y="147.03418">i°</tspan>
-    </text>
-    <text x="102.60371" y="117.147" id="degree">
-      <tspan x="102.60371" y="117.147">v°</tspan>
-    </text>
-    <text x="100.46891" y="81.255737" id="degree">
-      <tspan x="100.46891" y="81.255737">ii°</tspan>
-    </text>
-    <text x="117.68071" y="49.767467" id="degree">
-      <tspan x="117.68071" y="49.767467">vi°</tspan>
-    </text>
-    <text x="147.43446" y="30.821138" id="degree">
-      <tspan x="147.43446" y="30.821138">iii°</tspan>
-    </text>
-    <text x="179.99013" y="48.43322" id="degree">
-      <tspan x="179.99013" y="48.43322">vi</tspan>
-    </text>
-    <text x="201.07124" y="59.507484" id="degree">
-      <tspan x="201.07124" y="59.507484">iii</tspan>
-    </text>
-    <text x="214.94742" y="80.588615" id="degree">
-      <tspan x="214.94742" y="80.588615">vii</tspan>
-    </text>
-    <text x="214.81401" y="106.20618" id="degree">
-      <tspan style="font-size:65%;baseline-shift:sub" id="tspan105">#</tspan>iv
-    </text>
-    <text x="204.00661" y="128.22128" id="degree">
-      <tspan style="font-size:65%;baseline-shift:sub" id="tspan106">#</tspan>i
-    </text>
-    <text x="183.32574" y="142.23088" id="degree">
-      <tspan style="font-size:65%;baseline-shift:sub" id="tspan108">#</tspan>v
-    </text>
-    <text x="158.64215" y="144.23225" id="degree">
-      <tspan style="font-size:65%;baseline-shift:sub" id="tspan109">b</tspan>iii
-    </text>
-    <text x="135.55965" y="132.6243" id="degree">
-      <tspan style="font-size:65%;baseline-shift:sub" id="tspan110">b</tspan>vii
-    </text>
-    <text x="121.68345" y="111.40975" id="degree">
-      <tspan x="121.68345" y="111.40975">iv</tspan>
-    </text>
-    <text x="121.41662" y="85.792175" id="degree">
-      <tspan x="121.41662" y="85.792175">i</tspan>
-    </text>
-    <text x="133.158" y="62.309402" id="degree">
-      <tspan x="133.158" y="62.309402">v</tspan>
-    </text>
-    <text x="155.43994" y="49.233772" id="degree">
-      <tspan x="155.43994" y="49.233772">ii</tspan>
-    </text>
-    <text x="174.91998" y="66.845848" id="degree">
-      <tspan x="174.91998" y="66.845848">I</tspan>
-    </text>
-    <text x="188.26247" y="73.116821" id="degree">
-      <tspan x="188.26247" y="73.116821">V</tspan>
-    </text>
-    <text x="196.13452" y="85.391907" id="degree">
-      <tspan x="196.13452" y="85.391907">II</tspan>
-    </text>
-    <text x="197.73563" y="101.53631" id="degree">
-      <tspan x="197.73563" y="101.53631">VI</tspan>
-    </text>
-    <text x="190.93097" y="114.47852" id="degree">
-      <tspan x="190.93097" y="114.47852">III</tspan>
-    </text>
-    <text x="177.98874" y="124.48538" id="degree">
-      <tspan x="177.98874" y="124.48538">VII</tspan>
-    </text>
-    <text x="162.91173" y="125.81963" id="degree">
-      <tspan style="font-size:65%;baseline-shift:sub" id="tspan115">b</tspan>V
-    </text>
-    <text x="149.3024" y="119.14839" id="degree">
-      <tspan style="font-size:65%;baseline-shift:sub" id="tspan114">b</tspan>II
-    </text>
-    <text x="140.36293" y="105.93934" id="degree">
-      <tspan style="font-size:65%;baseline-shift:sub" id="tspan113">b</tspan>VI
-    </text>
-    <text x="138.09474" y="92.196564" id="degree">
-      <tspan style="font-size:65%;baseline-shift:sub" id="tspan112">b</tspan>III
-    </text>
-    <text x="144.36569" y="79.120934" id="degree">
-      <tspan style="font-size:65%;baseline-shift:sub" id="tspan111">b</tspan>VII
-    </text>
-    <text x="158.10843" y="68.446945" id="degree">
-      <tspan x="158.10843" y="68.446945">IV</tspan>
-    </text>
+    {#each modesDeg as modeDeg, modeDegSecInd}
+      <text id="degree" x={MODES_DEG_COORDS[modeDegSecInd][0].x} y={MODES_DEG_COORDS[modeDegSecInd][0].y}
+        >{modeDeg[0]}</text
+      >
+      <text id="degree" x={MODES_DEG_COORDS[modeDegSecInd][1].x} y={MODES_DEG_COORDS[modeDegSecInd][1].y}
+        >{modeDeg[1]}</text
+      >
+      <text id="degree" x={MODES_DEG_COORDS[modeDegSecInd][2].x} y={MODES_DEG_COORDS[modeDegSecInd][2].y}
+        >{modeDeg[2]}</text
+      >
+    {/each}
   </g>
 
   <!-- CHORDS -->
