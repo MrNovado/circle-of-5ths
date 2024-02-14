@@ -43,8 +43,13 @@
   }
 
   let modeCurrentIndex = $state(0);
-  let onModeClick = (mode: number) => () => {
-    modeCurrentIndex = mode;
+  let onModeClick = (mode: number) => (e: MouseEvent) => {
+    if (e.shiftKey) {
+      modeCurrentIndex = mode;
+    } else {
+      modeCurrentIndex = mode;
+      sharpsCurrentIndex = mode;
+    }
   }
 
   let sharps = $derived([...sharpsSeqGen(sharpsCurrentIndex)]);
