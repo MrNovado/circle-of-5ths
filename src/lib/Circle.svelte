@@ -50,9 +50,11 @@
   let sharps = $derived([...sharpsSeqGen(sharpsCurrentIndex)]);
   let modesDeg = $derived([...modesSeqGen(modeCurrentIndex)]);
 
-  let selectedChord = $state("C");
-  let onChordClick = (chord: string) => () => {
+  let selectedChord = $state("");
+  let selectedChordRid = $state<number | undefined>(undefined);
+  let onChordClick = (chord: string, rid: number | undefined) => () => {
     selectedChord = chord;
+    selectedChordRid = rid;
   };
 
   let hoveredChord = $state("");
@@ -163,6 +165,7 @@
             [CHORD_CLS.selected]: selectedChord === chord.ch,
             [CHORD_CLS.idle]: selectedChord !== chord.ch,
             [CHORD_CLS.hover]: hoveredChord === chord.ch,
+            [CHORD_CLS.relevant]: selectedChordRid === chord.rId,
             [CHORD_CLS.current]:
               CHORD_SEQ_TYPE[chordInd] === "dim" //
                 ? CURRENT_SEQ[0] === chordSecInd
@@ -173,7 +176,7 @@
           <path
             id="frame"
             d={SH_C[chordSecInd][chordInd].d}
-            on:click={onChordClick(chord.ch)}
+            on:click={onChordClick(chord.ch, chord.rId)}
             on:mouseenter={onChordHover(chord.ch)}
             on:mouseleave={onChordHover("")}
           />

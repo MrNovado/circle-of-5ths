@@ -279,7 +279,7 @@ export const SHARPS_ARR_SHARP_ONLY: ChordsSeqExp = SHARPS_ARR.map(
     sec.map(function sharpsOnly(v): ChordDesc {
       const invariants = v.ch.split("/");
       if (invariants.length > 1) {
-        if (v.ch.includes("#")) {
+        if (v.ch.includes("#") && v.ch.includes("b")) {
           return {
             ...v,
             ch: invariants[0].includes("#") //
@@ -288,12 +288,13 @@ export const SHARPS_ARR_SHARP_ONLY: ChordsSeqExp = SHARPS_ARR.map(
           };
         }
 
-        if (v.ch.includes("b")) {
+        if (v.ch.includes("#") || v.ch.includes("b")) {
           return {
             ...v,
-            ch: invariants[0].includes("b") //
-              ? invariants[1]
-              : invariants[0],
+            ch:
+              invariants[0].includes("#") || invariants[0].includes("b") //
+                ? invariants[1]
+                : invariants[0],
           };
         }
 
