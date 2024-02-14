@@ -13,11 +13,16 @@
     SHARPS_COORDS as SH_C,
   } from "./components/Sharps";
 
+  import {
+    CURRENT_SEQ, //
+  } from "./common";
+
   const CHORD_CLS = {
     selected: "ch-selected",
     idle: "ch-idle",
     relevant: "ch-relevant",
     hover: "ch-hover",
+    current: "ch-current",
   };
 
   let modesDesc = $state(MODES_ARR_DESC);
@@ -120,6 +125,7 @@
           [CHORD_CLS.selected]: selectedChord === chordSec[0].ch,
           [CHORD_CLS.idle]: selectedChord !== chordSec[0].ch,
           [CHORD_CLS.hover]: hoveredChord === chordSec[0].ch,
+          [CHORD_CLS.current]: CURRENT_SEQ[0] === chordSecInd,
         })}
       >
         <path
@@ -137,6 +143,7 @@
           [CHORD_CLS.selected]: selectedChord === chordSec[1].ch,
           [CHORD_CLS.idle]: selectedChord !== chordSec[1].ch,
           [CHORD_CLS.hover]: hoveredChord === chordSec[1].ch,
+          [CHORD_CLS.current]: CURRENT_SEQ.includes(chordSecInd),
         })}
       >
         <path
@@ -154,6 +161,7 @@
           [CHORD_CLS.selected]: selectedChord === chordSec[2].ch,
           [CHORD_CLS.idle]: selectedChord !== chordSec[2].ch,
           [CHORD_CLS.hover]: hoveredChord === chordSec[2].ch,
+          [CHORD_CLS.current]: CURRENT_SEQ.includes(chordSecInd),
         })}
       >
         <path
@@ -186,7 +194,7 @@
   <!-- SELECTOR -->
   <g id="selector">
     <path
-      style="opacity:1;fill:url(#linearGradient61);stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+      style="opacity:1;fill:rgba(195,195,195,0.1);stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;pointer-events:none;"
       d="M 206.68725,58.423036 C 200.01623,51.906732 192.75052,47.553134 183.73253,45.219031 l 5.23999,-19.421981 c -12.14357,-3.343445 -24.49896,-3.509409 -36.70093,-0.382785 l 5.23681,19.532928 c -9.16835,2.320595 -16.86009,6.658893 -23.65694,13.177775 l 28.01343,28.099919 c 4.75117,-4.328928 12.15407,-4.274596 16.88215,0.141774 z"
       id="selector-path"
     />
@@ -249,14 +257,20 @@
   }
 
   #chords .ch-selected.ch-selected #frame {
-    fill: red;
+    fill: lightgray;
   }
 
   #chords .ch-hover #frame {
-    fill: rgba(255, 0, 0, 0.2);
+    fill: silver;
   }
 
   #chords .ch-relevant #frame {
     fill: pink;
+  }
+
+  #chords .ch-current text {
+    fill: aquamarine;
+    stroke: black;
+    stroke-width: 0.05px;
   }
 </style>

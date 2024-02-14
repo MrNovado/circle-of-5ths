@@ -4,6 +4,8 @@ export type ChordsSeqExp = [ChordDesc, ChordDesc, ChordDesc][];
 export type ChordItem = { v: ChordsSeqExp[number]; gi: number; n: number; p: number };
 export type ChordsRec = Record<number, ChordItem>;
 
+export const CURRENT_SEQ = [0, 1, 11];
+
 export const seqToRec = (seq: ChordsSeq | ChordsSeqExp) =>
   seq.reduce(
     (acc, v, index, a) => {
