@@ -33,7 +33,15 @@
   const sharpsSeqGen = createSeqGen(SHARPS_REC_SHARP_ONLY);
   const modesSeqGen = createSeqGen(MODES_REC);
 
-  let sharpsCurrentIndex = $state(0);
+  let sharpsCurrentIndex = $state(0);  
+  let onWheel = (e: WheelEvent) => {
+    if (e.deltaY > 0) {
+      sharpsCurrentIndex = sharpsCurrentIndex === 0 ? 11 : sharpsCurrentIndex - 1;
+    } else {
+      sharpsCurrentIndex = sharpsCurrentIndex === 11 ? 0 : sharpsCurrentIndex + 1;
+    }
+  }
+
   let modeCurrentIndex = $state(0);
   let onModeClick = (mode: number) => () => {
     modeCurrentIndex = mode;
@@ -74,6 +82,7 @@
   version="1.1"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns="http://www.w3.org/2000/svg"
+  on:wheel={onWheel}
 >
   <!-- BASE -->
   <g id="base">
