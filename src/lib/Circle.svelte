@@ -6,7 +6,6 @@
   height="720"
   viewBox="0 0 338.66667 190.5"
   version="1.1"
-  xml:space="preserve"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns="http://www.w3.org/2000/svg"
 >
@@ -90,578 +89,124 @@
 
   <!-- SCALES -->
   <g id="scales" style="display:inline">
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-      x="204.67372"
-      y="25.484146"
-      id="lydian"
-    >
-      Lydian
+    <!-- scales-descriptors -->
+    <text x="204.67372" y="25.484146" id="description"> Lydian </text>
+    <text x="164.246" y="14.676733" id="description"> Ionian </text>
+    <text x="119.28182" y="24.81702" id="description"> Mixolydian </text>
+    <text x="92.863693" y="55.371311" id="description"> Dorian </text>
+    <text x="81.38916" y="95.932465" id="description"> Aeolian </text>
+    <text x="91.129173" y="136.49362" id="description"> Phrygian </text>
+    <text x="122.08374" y="166.11392" id="description"> Locrian </text>
+    <text x="165.08374" y="178.11392" id="description"> ??? </text>
+    <text x="208.08374" y="167.11392" id="description"> ??? </text>
+    <text x="235.08374" y="138.11392" id="description"> ??? </text>
+    <text x="245.08374" y="98.11392" id="description"> ??? </text>
+    <text x="235.08374" y="58.11392" id="description"> ??? </text>
+
+    <!-- scales-chords-degrees -->
+    <text x="182.52519" y="28.953192" id="degree">vii°</text>
+    <text x="211.6118" y="45.631298" id="degree"> #iv° </text>
+    <text x="232.55951" y="75.518463" id="degree">
+      <tspan style="font-size:65%;baseline-shift:sub" id="tspan103">#</tspan>i°
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-      x="164.246"
-      y="14.676733"
-      id="ionian"
-    >
-      Ionian
+    <text x="234.16061" y="111.54317" id="degree">
+      <tspan style="font-size:65%;baseline-shift:sub" id="tspan104">#</tspan>v°
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-      x="119.28182"
-      y="24.81702"
-      id="mixolydian"
-    >
-      Mixolydian
+    <text x="217.61592" y="141.96402" id="degree">
+      <tspan style="font-size:65%;baseline-shift:sub" id="tspan107">#</tspan>ii°
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-      x="92.863693"
-      y="55.371311"
-      id="dorian"
-    >
-      Dorian
+    <text x="189.59669" y="162.11121" id="degree">
+      <tspan x="189.59669" y="162.11121">vi°</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-      x="81.38916"
-      y="95.932465"
-      id="aeolian"
-    >
-      Aeolian
+    <text x="153.0383" y="163.84572" id="degree">
+      <tspan x="153.0383" y="163.84572">iv°</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-      x="91.129173"
-      y="136.49362"
-      id="phrygian"
-    >
-      Phrygian
+    <text x="121.68346" y="147.03418" id="degree">
+      <tspan x="121.68346" y="147.03418">i°</tspan>
     </text>
-    <text
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:1"
-      x="122.08374"
-      y="166.11392"
-      id="locrian"
-    >
-      Locrian
+    <text x="102.60371" y="117.147" id="degree">
+      <tspan x="102.60371" y="117.147">v°</tspan>
     </text>
-    <text style="fill:gray;font-size:4.23333px;font-family:'Comic Sans MS';" x="165.08374" y="178.11392" id="unknown">
-      ???
+    <text x="100.46891" y="81.255737" id="degree">
+      <tspan x="100.46891" y="81.255737">ii°</tspan>
     </text>
-    <text style="fill:gray;font-size:4.23333px;font-family:'Comic Sans MS';" x="208.08374" y="167.11392" id="unknown">
-      ???
+    <text x="117.68071" y="49.767467" id="degree">
+      <tspan x="117.68071" y="49.767467">vi°</tspan>
     </text>
-    <text style="fill:gray;font-size:4.23333px;font-family:'Comic Sans MS';" x="235.08374" y="138.11392" id="unknown">
-      ???
+    <text x="147.43446" y="30.821138" id="degree">
+      <tspan x="147.43446" y="30.821138">iii°</tspan>
     </text>
-    <text style="fill:gray;font-size:4.23333px;font-family:'Comic Sans MS';" x="245.08374" y="98.11392" id="unknown">
-      ???
+    <text x="179.99013" y="48.43322" id="degree">
+      <tspan x="179.99013" y="48.43322">vi</tspan>
     </text>
-    <text style="fill:gray;font-size:4.23333px;font-family:'Comic Sans MS';" x="235.08374" y="58.11392" id="unknown">
-      ???
+    <text x="201.07124" y="59.507484" id="degree">
+      <tspan x="201.07124" y="59.507484">iii</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="182.52519"
-      y="28.953192"
-      id="text14"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="182.52519"
-        y="28.953192"
-      ></tspan>
+    <text x="214.94742" y="80.588615" id="degree">
+      <tspan x="214.94742" y="80.588615">vii</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="211.6118"
-      y="45.631298"
-      id="text15"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="211.6118"
-        y="45.631298"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan102">#</tspan>iv°</tspan
-      >
+    <text x="214.81401" y="106.20618" id="degree">
+      <tspan style="font-size:65%;baseline-shift:sub" id="tspan105">#</tspan>iv
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="232.55951"
-      y="75.518463"
-      id="text16"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="232.55951"
-        y="75.518463"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan103">#</tspan>i°</tspan
-      >
+    <text x="204.00661" y="128.22128" id="degree">
+      <tspan style="font-size:65%;baseline-shift:sub" id="tspan106">#</tspan>i
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="234.16061"
-      y="111.54317"
-      id="text17"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="234.16061"
-        y="111.54317"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan104">#</tspan>v°</tspan
-      >
+    <text x="183.32574" y="142.23088" id="degree">
+      <tspan style="font-size:65%;baseline-shift:sub" id="tspan108">#</tspan>v
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="217.61592"
-      y="141.96402"
-      id="text18"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="217.61592"
-        y="141.96402"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan107">#</tspan>ii°</tspan
-      >
+    <text x="158.64215" y="144.23225" id="degree">
+      <tspan style="font-size:65%;baseline-shift:sub" id="tspan109">b</tspan>iii
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="189.59669"
-      y="162.11121"
-      id="text19"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="189.59669"
-        y="162.11121">vi°</tspan
-      >
+    <text x="135.55965" y="132.6243" id="degree">
+      <tspan style="font-size:65%;baseline-shift:sub" id="tspan110">b</tspan>vii
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="153.0383"
-      y="163.84572"
-      id="text20"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="153.0383"
-        y="163.84572">iv°</tspan
-      >
+    <text x="121.68345" y="111.40975" id="degree">
+      <tspan x="121.68345" y="111.40975">iv</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="121.68346"
-      y="147.03418"
-      id="text21"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="121.68346"
-        y="147.03418">i°</tspan
-      >
+    <text x="121.41662" y="85.792175" id="degree">
+      <tspan x="121.41662" y="85.792175">i</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="102.60371"
-      y="117.147"
-      id="text22"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="102.60371"
-        y="117.147">v°</tspan
-      >
+    <text x="133.158" y="62.309402" id="degree">
+      <tspan x="133.158" y="62.309402">v</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="100.46891"
-      y="81.255737"
-      id="text23"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="100.46891"
-        y="81.255737">ii°</tspan
-      >
+    <text x="155.43994" y="49.233772" id="degree">
+      <tspan x="155.43994" y="49.233772">ii</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="117.68071"
-      y="49.767467"
-      id="text24"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="117.68071"
-        y="49.767467">vi°</tspan
-      >
+    <text x="174.91998" y="66.845848" id="degree">
+      <tspan x="174.91998" y="66.845848">I</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="147.43446"
-      y="30.821138"
-      id="text25"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="147.43446"
-        y="30.821138">iii°</tspan
-      >
+    <text x="188.26247" y="73.116821" id="degree">
+      <tspan x="188.26247" y="73.116821">V</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="179.99013"
-      y="48.43322"
-      id="text26"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="179.99013"
-        y="48.43322">vi</tspan
-      >
+    <text x="196.13452" y="85.391907" id="degree">
+      <tspan x="196.13452" y="85.391907">II</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="201.07124"
-      y="59.507484"
-      id="text27"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="201.07124"
-        y="59.507484">iii</tspan
-      >
+    <text x="197.73563" y="101.53631" id="degree">
+      <tspan x="197.73563" y="101.53631">VI</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="214.94742"
-      y="80.588615"
-      id="text28"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="214.94742"
-        y="80.588615">vii</tspan
-      >
+    <text x="190.93097" y="114.47852" id="degree">
+      <tspan x="190.93097" y="114.47852">III</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="214.81401"
-      y="106.20618"
-      id="text29"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="214.81401"
-        y="106.20618"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan105">#</tspan>iv</tspan
-      >
+    <text x="177.98874" y="124.48538" id="degree">
+      <tspan x="177.98874" y="124.48538">VII</tspan>
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="204.00661"
-      y="128.22128"
-      id="text30"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="204.00661"
-        y="128.22128"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan106">#</tspan>i</tspan
-      >
+    <text x="162.91173" y="125.81963" id="degree">
+      <tspan style="font-size:65%;baseline-shift:sub" id="tspan115">b</tspan>V
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="183.32574"
-      y="142.23088"
-      id="text31"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="183.32574"
-        y="142.23088"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan108">#</tspan>v</tspan
-      >
+    <text x="149.3024" y="119.14839" id="degree">
+      <tspan style="font-size:65%;baseline-shift:sub" id="tspan114">b</tspan>II
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="158.64215"
-      y="144.23225"
-      id="text32"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="158.64215"
-        y="144.23225"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan109">b</tspan>iii</tspan
-      >
+    <text x="140.36293" y="105.93934" id="degree">
+      <tspan style="font-size:65%;baseline-shift:sub" id="tspan113">b</tspan>VI
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="135.55965"
-      y="132.6243"
-      id="text33"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="135.55965"
-        y="132.6243"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan110">b</tspan>vii</tspan
-      >
+    <text x="138.09474" y="92.196564" id="degree">
+      <tspan style="font-size:65%;baseline-shift:sub" id="tspan112">b</tspan>III
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="121.68345"
-      y="111.40975"
-      id="text34"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="121.68345"
-        y="111.40975">iv</tspan
-      >
+    <text x="144.36569" y="79.120934" id="degree">
+      <tspan style="font-size:65%;baseline-shift:sub" id="tspan111">b</tspan>VII
     </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="121.41662"
-      y="85.792175"
-      id="text35"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="121.41662"
-        y="85.792175">i</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="133.158"
-      y="62.309402"
-      id="text36"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="133.158"
-        y="62.309402">v</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="155.43994"
-      y="49.233772"
-      id="text37"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="155.43994"
-        y="49.233772">ii</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="174.91998"
-      y="66.845848"
-      id="text38"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="174.91998"
-        y="66.845848">I</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="188.26247"
-      y="73.116821"
-      id="text39"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="188.26247"
-        y="73.116821">V</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="196.13452"
-      y="85.391907"
-      id="text40"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="196.13452"
-        y="85.391907">II</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="197.73563"
-      y="101.53631"
-      id="text41"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="197.73563"
-        y="101.53631">VI</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="190.93097"
-      y="114.47852"
-      id="text42"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="190.93097"
-        y="114.47852">III</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="177.98874"
-      y="124.48538"
-      id="text43"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="177.98874"
-        y="124.48538">VII</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="162.91173"
-      y="125.81963"
-      id="text44"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="162.91173"
-        y="125.81963"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan115">b</tspan>V</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="149.3024"
-      y="119.14839"
-      id="text45"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="149.3024"
-        y="119.14839"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan114">b</tspan>II</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="140.36293"
-      y="105.93934"
-      id="text46"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="140.36293"
-        y="105.93934"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan113">b</tspan>VI</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="138.09474"
-      y="92.196564"
-      id="text47"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="138.09474"
-        y="92.196564"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan112">b</tspan>III</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="144.36569"
-      y="79.120934"
-      id="text48"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="144.36569"
-        y="79.120934"
-      >
-        <tspan style="font-size:65%;baseline-shift:sub" id="tspan111">b</tspan>VII</tspan
-      >
-    </text>
-    <text
-      xml:space="preserve"
-      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-      x="158.10843"
-      y="68.446945"
-      id="text49"
-    >
-      <tspan
-        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffdd55;fill-opacity:1;stroke:#28220b;stroke-width:0.165;stroke-dasharray:none;stroke-opacity:0.298039"
-        x="158.10843"
-        y="68.446945">IV</tspan
-      >
+    <text x="158.10843" y="68.446945" id="degree">
+      <tspan x="158.10843" y="68.446945">IV</tspan>
     </text>
   </g>
 
@@ -671,7 +216,6 @@
     <g id="major">
       <g id="major-12">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="159.27916"
           y="78.052078"
@@ -691,7 +235,6 @@
       </g>
       <g id="major-11">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="147.24063"
           y="86.386452"
@@ -712,7 +255,6 @@
       </g>
       <g id="major-10">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="145.25626"
           y="96.837502"
@@ -733,7 +275,6 @@
       </g>
       <g id="major-9">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="147.50522"
           y="107.81771"
@@ -754,7 +295,6 @@
       </g>
       <g id="major-8">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="155.575"
           y="116.54895"
@@ -775,7 +315,6 @@
       </g>
       <g id="major-7">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="167.08438"
           y="118.40104"
@@ -796,7 +335,6 @@
       </g>
       <g id="major-6">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="179.78438"
           y="116.54896"
@@ -816,7 +354,6 @@
       </g>
       <g id="major-5">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="187.06041"
           y="109.14062"
@@ -836,7 +373,6 @@
       </g>
       <g id="major-4">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="189.44167"
           y="96.837502"
@@ -856,7 +392,6 @@
       </g>
       <g id="major-3">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="187.85417"
           y="85.989578"
@@ -876,7 +411,6 @@
       </g>
       <g id="major-2">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="179.3875"
           y="77.787498"
@@ -896,7 +430,6 @@
       </g>
       <g id="major-1">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="168.40729"
           y="75.538544"
@@ -919,7 +452,6 @@
     <g id="minor">
       <g id="minor-12">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="146.18228"
           y="60.457291"
@@ -935,7 +467,6 @@
       </g>
       <g id="minor-11">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="130.04269"
           y="76.596878"
@@ -951,7 +482,6 @@
       </g>
       <g id="minor-10">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="124.22187"
           y="96.969795"
@@ -967,7 +497,6 @@
       </g>
       <g id="minor-9">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="129.64583"
           y="118.13646"
@@ -983,7 +512,6 @@
       </g>
       <g id="minor-8">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="143.80104"
           y="132.55624"
@@ -999,7 +527,6 @@
       </g>
       <g id="minor-7">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="165.2323"
           y="137.98021"
@@ -1015,7 +542,6 @@
       </g>
       <g id="minor-6">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="185.34062"
           y="133.4823"
@@ -1031,7 +557,6 @@
       </g>
       <g id="minor-5">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="201.08333"
           y="117.87188"
@@ -1047,7 +572,6 @@
       </g>
       <g id="minor-4">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="205.58124"
           y="97.498955"
@@ -1063,7 +587,6 @@
       </g>
       <g id="minor-3">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="202.00938"
           y="75.67083"
@@ -1079,7 +602,6 @@
       </g>
       <g id="minor-2">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="185.86978"
           y="61.647915"
@@ -1095,7 +617,6 @@
       </g>
       <g id="minor-1">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="165.76144"
           y="56.620834"
@@ -1114,7 +635,6 @@
     <g id="diminished">
       <g id="dim-12">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="137.71562"
           y="44.979164"
@@ -1135,7 +655,6 @@
       </g>
       <g id="dim-11">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="111.91875"
           y="68.65937"
@@ -1152,7 +671,6 @@
       </g>
       <g id="dim-10">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="105.17187"
           y="98.292709"
@@ -1169,7 +687,6 @@
       </g>
       <g id="dim-9">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="113.50625"
           y="130.3073"
@@ -1186,7 +703,6 @@
       </g>
       <g id="dim-8">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="136.52499"
           y="151.87083"
@@ -1203,7 +719,6 @@
       </g>
       <g id="dim-7">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="168.27499"
           y="158.61771"
@@ -1220,7 +735,6 @@
       </g>
       <g id="dim-6">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="195.39479"
           y="148.69583"
@@ -1239,7 +753,6 @@
       </g>
       <g id="dim-5">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="217.22292"
           y="128.32292"
@@ -1258,7 +771,6 @@
       </g>
       <g id="dim-4">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="225.68959"
           y="97.234375"
@@ -1277,7 +789,6 @@
       </g>
       <g id="dim-3">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="216.82603"
           y="66.674995"
@@ -1299,7 +810,6 @@
       </g>
       <g id="dim-2">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="194.33646"
           y="44.185417"
@@ -1321,7 +831,6 @@
       </g>
       <g id="dim-1">
         <text
-          xml:space="preserve"
           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Comic Sans MS';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
           x="166.95207"
           y="38.232292"
@@ -1351,9 +860,19 @@
     height: 100%;
   }
 
-  #scales tspan {
-    /* fill: silver !important; */
-    opacity: 0.4 !important;
+  #scales text {
+    font-family: "Comic Sans MS";
+    fill: #ffdd55;
+    stroke: #28220b;
+    stroke-width: 0.165;
+  }
+
+  #scales #description {
+    font-size: 4px;
+  }
+
+  #scales #degree {
+    font-size: 3.8px;
   }
 
   #chords #frame {
