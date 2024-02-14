@@ -4,18 +4,19 @@
   import {
     MODES_ARR_DESC, //
     MODES_DESC_COORDS as M_DSC_C,
-    MODES_ARR,
+    MODES_REC,
     MODES_DEG_COORDS as M_DEG_C,
     isFirstDegree,
   } from "./components/Modes";
 
   import {
-    SHARPS_ARR_SHARP_ONLY, //
     SHARPS_COORDS as SH_C,
+    SHARPS_REC_SHARP_ONLY,
   } from "./components/Sharps";
 
   import {
     CURRENT_SEQ, //
+    createSeqGen,
   } from "./common";
 
   const CHORD_CLS = {
@@ -29,9 +30,17 @@
 
   const CHORD_SEQ_TYPE = ["dim", "minor", "major"];
 
-  let sharps = $state(SHARPS_ARR_SHARP_ONLY);
-  let modesDesc = $state(MODES_ARR_DESC);
-  let modesDeg = $state(MODES_ARR);
+  const sharpsSeqGen = createSeqGen(SHARPS_REC_SHARP_ONLY);
+  const modesSeqGen = createSeqGen(MODES_REC);
+
+  let sharpsCurrentIndex = $state(0);
+  let modeCurrentIndex = $state(0);
+  let onModeClick = (mode: number) => () => {
+    modeCurrentIndex = mode;
+  }
+
+  let sharps = $derived([...sharpsSeqGen(sharpsCurrentIndex)]);
+  let modesDeg = $derived([...modesSeqGen(modeCurrentIndex)]);
 
   let selectedChord = $state("C");
   let onChordClick = (chord: string) => () => {
@@ -137,7 +146,7 @@
 
   <!-- CHORDS -->
   <g id="chords">
-    {#each sharps as chordSec, chordSecInd (chordSec.map((s) => s.ch).join("-"))}
+    {#each sharps as { v: chordSec }, chordSecInd (chordSec.map((s) => s.ch).join("-"))}
       {#each chordSec as chord, chordInd (`${chord.ch}-${chordInd}`)}
         <g
           id={CHORD_SEQ_TYPE[chordInd]}
@@ -149,7 +158,7 @@
               CHORD_SEQ_TYPE[chordInd] === "dim" //
                 ? CURRENT_SEQ[0] === chordSecInd
                 : CURRENT_SEQ.includes(chordSecInd),
-            [CHORD_CLS.currentKey]: isFirstDegree(modesDeg[chordSecInd][chordInd]),
+            [CHORD_CLS.currentKey]: isFirstDegree(modesDeg[chordSecInd].v[chordInd].ch),
           })}
         >
           <path
@@ -167,14 +176,9 @@
 
   <!-- SCALES -->
   <g id="scales">
-    <!-- scales-descriptors -->
-    {#each modesDesc as modeDesc, modeDescInd (`${modeDesc}-${modeDescInd}`)}
-      <text id="description" x={M_DSC_C[modeDescInd].x} y={M_DSC_C[modeDescInd].y}>{modeDesc}</text>
-    {/each}
-
-    <!-- scales-chords-degrees -->
-    {#each modesDeg as modeDeg, modeDegSecInd (modeDeg.join("-"))}
-      {#each modeDeg as deg, degInd (`${deg}-${degInd}`)}
+    {#each modesDeg as { v: modeDeg, gi: modeGi }, modeDegSecInd (modeDeg.map(d => d.ch).join("-"))}
+      <text id="description" x={M_DSC_C[modeDegSecInd].x} y={M_DSC_C[modeDegSecInd].y} on:click={onModeClick(modeGi)}>{MODES_ARR_DESC[modeGi]}</text>
+      {#each modeDeg as { ch: deg }, degInd (`${deg}-${degInd}`)}
         <text id="degree" x={M_DEG_C[modeDegSecInd][degInd].x} y={M_DEG_C[modeDegSecInd][degInd].y}>{deg}</text>
       {/each}
     {/each}
@@ -202,11 +206,14 @@
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     fill: #ffdd55;
     stroke: #28220b;
-    stroke-width: 0.165;
+    stroke-width: 0.1;
   }
 
   #scales #description {
-    font-size: 4px;
+    font-size: 3px;
+    stroke-width: 0.03;
+    cursor: pointer;
+    pointer-events: all;
   }
 
   #scales #degree {

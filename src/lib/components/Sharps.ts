@@ -315,3 +315,4 @@ export const SHARPS_ARR_SHARP_ONLY: ChordsSeqExp = SHARPS_ARR.map(
 );
 
 export const SHARPS_REC = seqToRec(SHARPS_ARR);
+export const SHARPS_REC_SHARP_ONLY = seqToRec(SHARPS_ARR_SHARP_ONLY);
