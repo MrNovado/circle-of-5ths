@@ -21,4 +21,5 @@ Interactive `circle of 5ths` to help explore music.
 - can switch scales by clicking on scale names
   - simple `click` switches boths scale and key, ie rotates both sharps and modes circles together
   - `shift+click` only rotates modes/degrees
+- `mouse-wheel` rotates chords/sharps
 - can play selected chords (`wip`)
