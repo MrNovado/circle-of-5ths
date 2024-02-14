@@ -171,12 +171,12 @@
   <!-- SCALES -->
   <g id="scales">
     <!-- scales-descriptors -->
-    {#each modesDesc as modeDesc, modeDescInd}
+    {#each modesDesc as modeDesc, modeDescInd (`${modeDesc}-${modeDescInd}`)}
       <text id="description" x={M_DSC_C[modeDescInd].x} y={M_DSC_C[modeDescInd].y}>{modeDesc}</text>
     {/each}
 
     <!-- scales-chords-degrees -->
-    {#each modesDeg as modeDeg, modeDegSecInd}
+    {#each modesDeg as modeDeg, modeDegSecInd (modeDeg.join("-"))}
       <text id="degree" x={M_DEG_C[modeDegSecInd][0].x} y={M_DEG_C[modeDegSecInd][0].y}>{modeDeg[0]}</text>
       <text id="degree" x={M_DEG_C[modeDegSecInd][1].x} y={M_DEG_C[modeDegSecInd][1].y}>{modeDeg[1]}</text>
       <text id="degree" x={M_DEG_C[modeDegSecInd][2].x} y={M_DEG_C[modeDegSecInd][2].y}>{modeDeg[2]}</text>
