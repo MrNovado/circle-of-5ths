@@ -44,10 +44,13 @@
   );
 
   const goSilent = () => {
+    console.group("@effect/goSilent");
     featureState = "silent";
+    console.groupEnd();
   };
 
   const goHowler = () => {
+    console.group("@effect/goHowler");
     const prepare = () => {
       const sprite: Record<number, [number, number]> = {};
       const stepLength = 923;
@@ -65,26 +68,48 @@
         sprite,
         volume: 0.75,
         html5: true,
-        onload() {
+        onload: () => {
+          console.group("@howler/onload");
+          if (featureState !== "initial") {
+            /**
+             * This seems to be happening when you play several sprites in quick succession.
+             * I.e. when you do several `H$.play(x)` without stopping `H$.stop()` the current play first.
+             */
+            console.warn("onload miss-fire");
+            console.groupEnd();
+            return;
+          }
+
           featureState = "armed";
           // @ts-expect-error
           console.log((window["H$"] = H$));
           console.log(pianoSpriteURL);
+          console.groupEnd();
         },
         onunlock: () => {
+          console.group("@howler/onunlock");
           featureState = "loud";
+          console.groupEnd();
         },
         onloaderror: (_, error) => {
+          console.group("@howler/onunlock");
           featureState = "error";
           console.error(error);
+          console.groupEnd();
         },
-        onplayerror: console.error,
+        onplayerror: (_, error) => {
+          console.group("@howler/onplayerror");
+          featureState = "error";
+          console.error(error);
+          console.groupEnd();
+        },
       });
 
       document.removeEventListener("click", prepare);
     };
 
     document.addEventListener("click", prepare);
+    console.groupEnd();
   };
 
   let sharpsCurrentIndex = $state(0);
@@ -116,15 +141,17 @@
   let onChordClick =
     (chord: string, rid: number | undefined, chGI: number | undefined) =>
     () => {
+      console.group("@effect/onChordClick");
       selectedChord = chord;
       selectedChordRid = rid;
 
       if (featureState === "loud") {
-        console.group("play");
+        H$.stop();
         /** ! extremely important for `H$.play` to consume string as index` ! */
         H$.play(`${chGI}`);
-        console.groupEnd();
       }
+
+      console.groupEnd();
     };
 
   let hoveredChord = $state("");
