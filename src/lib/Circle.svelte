@@ -54,7 +54,15 @@
     const prepare = () => {
       const sprite: Record<number, [number, number]> = {};
       const stepLength = 923;
-      const spriteLength = 800;
+      /**
+       * ? there's something wrong with howler and sprite timings
+       * ? almost as if it's incapable of using smaller time steps
+       * ? using audio editor you can confirm the actual length of sprites is `923ms`
+       * ? with `918ms` being the length of sound msg inside
+       * ? but using those will male howler to overstep selected boundary...
+       * * so the quick work-around is to just shorten the `spriteLength` to a closest round number
+       */
+      const spriteLength = 800; // 918
       for (
         let i = 0, startTime = 0;
         i < 36; //
@@ -179,11 +187,13 @@
 
 {#if featureState === "initial"}
   <center>
-    <button on:click={goHowler}>Go with howler</button>
+    <p>Modern browsers require an additional step or two to play audio</p>
+    <button on:click={goHowler}>Go howler</button>
     <button on:click={goSilent}>Go silent</button>
   </center>
 {:else if featureState === "armed"}
   <center>
+    <p>Howler' armed; unlock audio context</p>
     <button>Unlock audio</button>
   </center>
 {:else if featureState === "error"}
@@ -337,6 +347,19 @@
 {/if}
 
 <style>
+  center {
+    margin-top: 10%;
+  }
+
+  p {
+    max-width: 600px;
+    color: white;
+    margin: 18px;
+    line-height: 24px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+  }
+
   svg {
     user-select: none;
     background: silver;
