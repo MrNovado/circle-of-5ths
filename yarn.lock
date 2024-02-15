@@ -387,6 +387,11 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.5.tgz#a6ce3e556e00fd9895dd872dd172ad0d4bd687f4"
   integrity sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==
 
+"@types/howler@^2.2.11":
+  version "2.2.11"
+  resolved "https://registry.yarnpkg.com/@types/howler/-/howler-2.2.11.tgz#a75c4ab5666aee5fcfbd5de15d35dbaaa3d3f070"
+  integrity sha512-7aBoUL6RbSIrqKnpEgfa1wSNUBK06mn08siP2QI0zYk7MXfEJAaORc4tohamQYqCqVESoDyRWSdQn2BOKWj2Qw==
+
 "@types/pug@^2.0.6":
   version "2.0.10"
   resolved "https://registry.yarnpkg.com/@types/pug/-/pug-2.0.10.tgz#52f8dbd6113517aef901db20b4f3fca543b88c1f"
@@ -957,6 +962,16 @@ postcss@^8.4.32:
     nanoid "^3.3.7"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
+
+prettier-plugin-svelte@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-svelte/-/prettier-plugin-svelte-3.2.1.tgz#79fd9fd1f3449f9ada4ba928043b14f2cbd9e4f3"
+  integrity sha512-ENAPbIxASf2R79IZwgkG5sBdeNA9kLRlXVvKKmTXh79zWTy0KKoT86XO2pHrTitUPINd+iXWy12MRmgzKGVckA==
+
+prettier@^3.2.5:
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.2.5.tgz#e52bc3090586e824964a8813b09aba6233b28368"
+  integrity sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==
 
 queue-microtask@^1.2.2:
   version "1.2.3"
