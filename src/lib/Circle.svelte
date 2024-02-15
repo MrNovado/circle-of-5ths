@@ -23,7 +23,7 @@
     createSeqGen,
   } from "./common";
 
-  import pianoSprite from "../assets/pianosprite.mp3";
+  import pianoSpriteURL from "/pianosprite.mp3?url";
 
   const CHORD_CLS = {
     selected: "ch-selected",
@@ -44,24 +44,25 @@
   onMount(function prepareHowler() {
     const prepare = () => {
       const sprite: Record<number, [number, number]> = {};
-      const lengthOfNote = 2400;
+      const spriteLength = 2400;
       for (
-        let i = 24, timeIndex = 0;
-        i <= 96;
-        i += 1, timeIndex += lengthOfNote
+        let i = 24, startTime = 0; //
+        i <= 96; //
+        i += 1, startTime += spriteLength
       ) {
-        sprite[i] = [timeIndex, lengthOfNote];
+        sprite[i] = [startTime, spriteLength];
       }
 
       sound = new Howl({
-        src: [pianoSprite],
+        src: [pianoSpriteURL],
         sprite,
         volume: 0.75,
+        html5: true,
         onload() {
           howlerLoaded = true;
           // @ts-expect-error
           console.log((window["sound"] = sound));
-          console.log(pianoSprite);
+          console.log(pianoSpriteURL);
         },
         onunlock: console.info,
         onloaderror: console.error,
@@ -114,7 +115,8 @@
       /** note needs an octave for it to be converted to midi */
       const tonalMidis = tonalNotes.map((n) => `${n}5`).map(toMidi) as number[];
       tonalMidis.forEach((midi) => {
-        sound.play(midi);
+        /** ! extremely important for `sound.play` to consume midi-`string` ! */
+        sound.play(midi.toString());
         console.log({
           midi, // @ts-expect-error
           hasSprite: Boolean(sound["_sprite"][midi]),
