@@ -3,7 +3,6 @@
   import { onMount } from "svelte";
   import { Howl } from "howler";
   import { get as tonalChordGet } from "@tonaljs/chord";
-  import { toMidi } from "@tonaljs/midi";
 
   import {
     MODES_ARR_DESC, //
@@ -39,7 +38,7 @@
   const sharpsSeqGen = createSeqGen(SHARPS_REC_SHARP_ONLY);
   const modesSeqGen = createSeqGen(MODES_REC);
 
-  let sound: Howl;
+  let H$: Howl;
   let howlerLoaded = $state(false);
   onMount(function prepareHowler() {
     const prepare = () => {
@@ -53,7 +52,7 @@
         sprite[i] = [startTime, spriteLength];
       }
 
-      sound = new Howl({
+      H$ = new Howl({
         src: [pianoSpriteURL],
         sprite,
         volume: 0.75,
@@ -61,7 +60,7 @@
         onload() {
           howlerLoaded = true;
           // @ts-expect-error
-          console.log((window["sound"] = sound));
+          console.log((window["H$"] = H$));
           console.log(pianoSpriteURL);
         },
         onunlock: console.info,
@@ -74,7 +73,7 @@
 
     document.addEventListener("click", prepare);
     return function dispose() {
-      sound.unload();
+      H$.unload();
     };
   });
 
@@ -108,33 +107,31 @@
     selectedChord = chord;
     selectedChordRid = rid;
 
-    if (howlerLoaded) {
-      console.group("play");
-      const tonalCh = tonalChordGet(chord);
-      const tonalNotes = tonalCh.notes;
-      /** note needs an octave for it to be converted to midi */
-      const tonalMidis = tonalNotes.map((n) => `${n}5`).map(toMidi) as number[];
+    // if (howlerLoaded) {
+    //   console.group("play");
+    //   const tonalCh = tonalChordGet(chord);
+    //   const tonalNotes = tonalCh.notes;
+    //   /** note needs an octave for it to be converted to midi */
+    //   const tonalMidis = tonalNotes.map((n) => `${n}5`).map(toMidi) as number[];
 
-      sound.stop();
-      tonalMidis.forEach((midi) => {
-        /** ! extremely important for `sound.play` to consume midi-`string` ! */
-        sound.play(midi.toString());
-        console.log({
-          midi, // @ts-expect-error
-          hasSprite: Boolean(sound["_sprite"][midi]),
-        });
-      });
+    //   H$.stop();
+    //   tonalMidis.forEach((midi) => {
+    //     /** ! extremely important for `H$.play` to consume midi-`string` ! */
+    //     H$.play(midi.toString());
+    //     console.log({
+    //       midi, // @ts-expect-error
+    //       hasSprite: Boolean(H$["_sprite"][midi]),
+    //     });
+    //   });
 
-      console.groupEnd();
-    }
+    //   console.groupEnd();
+    // }
   };
 
   let hoveredChord = $state("");
   let onChordHover = (chord: string) => () => {
     hoveredChord = chord;
   };
-
-  // TODO: uuid for $keys
 </script>
 
 {#snippet chordSnippet(ch: string)}
@@ -231,10 +228,8 @@
 
   <!-- CHORDS -->
   <g id="chords">
-    {#each sharps as { v: chordSec }, chordSecInd (chordSec
-      .map((s) => s.ch)
-      .join("-"))}
-      {#each chordSec as chord, chordInd (`${chord.ch}-${chordInd}`)}
+    {#each sharps as { v: chordSec, sGI }, chordSecInd (sGI)}
+      {#each chordSec as chord, chordInd (chord.chGI)}
         <g
           id={CHORD_SEQ_TYPE[chordInd]}
           class={clsx({
@@ -270,14 +265,12 @@
 
   <!-- SCALES -->
   <g id="scales">
-    {#each modesDeg as { v: modeDeg, gi: modeGi }, modeDegSecInd (modeDeg
-      .map((d) => d.ch)
-      .join("-"))}
+    {#each modesDeg as { v: modeDeg, sGI: modeGI }, modeDegSecInd (modeGI)}
       <text
         id="description"
         x={M_DSC_C[modeDegSecInd].x}
         y={M_DSC_C[modeDegSecInd].y}
-        on:click={onModeClick(modeGi)}>{MODES_ARR_DESC[modeGi]}</text
+        on:click={onModeClick(modeGI)}>{MODES_ARR_DESC[modeGI]}</text
       >
       {#each modeDeg as { ch: deg }, degInd (`${deg}-${degInd}`)}
         <text

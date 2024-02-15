@@ -1,5 +1,5 @@
 export type ChordsSeq = [string, string, string][];
-export type ChordDesc = { ch: string; rId?: number; chGI: number };
+export type ChordDesc = { ch: string; rId?: number; chGI?: number };
 export type ChordsSeqExp = [ChordDesc, ChordDesc, ChordDesc][];
 export type ChordItem = {
   v: ChordsSeqExp[number];
