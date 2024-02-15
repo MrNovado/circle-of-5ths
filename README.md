@@ -4,7 +4,9 @@ Exploring `svelte-5` preview.
 
 Using `svg` (initially built in InkScape) as the main rendering medium.
 
-Using `tonal` & `howler` to play selected chords (`wip`).
+Using `tonal` to show info about selected chord & `howler` to play it.
+
+Piano sprite is made using `Fl Studio`.
 
 # About
 
@@ -26,4 +28,5 @@ Interactive `circle of 5ths` to help explore music.
   - simple `click` switches boths scale and key, ie rotates both sharps and modes circles together
   - `shift+click` only rotates modes/degrees
 - `mouse-wheel` rotates chords/sharps
-- can play selected chords (`wip`)
+- can play selected chords
+- see console for additional event/chord info
