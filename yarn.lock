@@ -318,21 +318,6 @@
     "@tonaljs/pitch-distance" "^5.0.3"
     "@tonaljs/pitch-interval" "^6.0.0"
 
-"@tonaljs/midi@4.9.3", "@tonaljs/midi@^4.9.3":
-  version "4.9.3"
-  resolved "https://registry.yarnpkg.com/@tonaljs/midi/-/midi-4.9.3.tgz#102ec9dd1923f38878defefeced0efe459481e74"
-  integrity sha512-sz6XrX6qoYSW3yDpR0K5JhYpsvlzrIJYFfRiOdf4kmnTPAewYyg7f8nLRMl502lBNCt80Bktx4mDHXaL6tWVKw==
-  dependencies:
-    "@tonaljs/core" "5.0.0"
-
-"@tonaljs/note@^4.10.3":
-  version "4.10.3"
-  resolved "https://registry.yarnpkg.com/@tonaljs/note/-/note-4.10.3.tgz#4e0e1e5bdfbdbd9d84e9e4edef3e7bb16cdb4f90"
-  integrity sha512-GvNILH91kkBV9ISAHK75gFkI8Jr0mvKRkO/wU1OhUAapnOrNzFS+EqxusKGc2Lz2MLIbVFRIBqWdyhxIwgpSCg==
-  dependencies:
-    "@tonaljs/core" "5.0.0"
-    "@tonaljs/midi" "4.9.3"
-
 "@tonaljs/pcset@4.9.2":
   version "4.9.2"
   resolved "https://registry.yarnpkg.com/@tonaljs/pcset/-/pcset-4.9.2.tgz#4a2ddabd52adbee6489a48d73e7b47e420082fd7"
