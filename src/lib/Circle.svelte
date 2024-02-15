@@ -1,5 +1,7 @@
 <script lang="ts">
   import { clsx } from "clsx";
+  import { onMount } from "svelte";
+  import { Howl } from "howler";
 
   import {
     MODES_ARR_DESC, //
@@ -19,6 +21,8 @@
     createSeqGen,
   } from "./common";
 
+  import pianoSprite from "../assets/pianosprite.mp3";
+
   const CHORD_CLS = {
     selected: "ch-selected",
     idle: "ch-idle",
@@ -33,14 +37,44 @@
   const sharpsSeqGen = createSeqGen(SHARPS_REC_SHARP_ONLY);
   const modesSeqGen = createSeqGen(MODES_REC);
 
-  let sharpsCurrentIndex = $state(0);  
+  let sound: Howl;
+  let howlerLoaded = $state(false);
+  onMount(function prepareHowler() {
+    const sprite: Record<number, [number, number]> = {};
+    const lengthOfNote = 2400;
+    for (
+      let i = 24, timeIndex = 0;
+      i <= 96;
+      i += 1, timeIndex += lengthOfNote
+    ) {
+      sprite[i] = [timeIndex, lengthOfNote];
+    }
+
+    sound = new Howl({
+      src: [pianoSprite],
+      sprite,
+      onload() {
+        howlerLoaded = true;
+        // @ts-expect-error
+        console.log((window["sound"] = sound));
+      },
+    });
+
+    return function dispose() {
+      sound.unload();
+    };
+  });
+
+  let sharpsCurrentIndex = $state(0);
   let onWheel = (e: WheelEvent) => {
     if (e.deltaY > 0) {
-      sharpsCurrentIndex = sharpsCurrentIndex === 0 ? 11 : sharpsCurrentIndex - 1;
+      sharpsCurrentIndex =
+        sharpsCurrentIndex === 0 ? 11 : sharpsCurrentIndex - 1;
     } else {
-      sharpsCurrentIndex = sharpsCurrentIndex === 11 ? 0 : sharpsCurrentIndex + 1;
+      sharpsCurrentIndex =
+        sharpsCurrentIndex === 11 ? 0 : sharpsCurrentIndex + 1;
     }
-  }
+  };
 
   let modeCurrentIndex = $state(0);
   let onModeClick = (mode: number) => (e: MouseEvent) => {
@@ -50,7 +84,7 @@
       modeCurrentIndex = mode;
       sharpsCurrentIndex = mode;
     }
-  }
+  };
 
   let sharps = $derived([...sharpsSeqGen(sharpsCurrentIndex)]);
   let modesDeg = $derived([...modesSeqGen(modeCurrentIndex)]);
@@ -71,11 +105,13 @@
 </script>
 
 {#snippet chordSnippet(ch: string)}
-  {#if ch.includes('#') && ch.includes("°")}
-    {ch.slice(0, ch.indexOf("#"))}<tspan>{ch.slice(ch.indexOf("#"), ch.indexOf("°"))}</tspan>{ch.slice(ch.indexOf("°"))}
-  {:else if ch.includes('#')}  
+  {#if ch.includes("#") && ch.includes("°")}
+    {ch.slice(0, ch.indexOf("#"))}<tspan
+      >{ch.slice(ch.indexOf("#"), ch.indexOf("°"))}</tspan
+    >{ch.slice(ch.indexOf("°"))}
+  {:else if ch.includes("#")}
     {ch.slice(0, ch.indexOf("#"))}<tspan>{ch.slice(ch.indexOf("#"))}</tspan>
-  {:else if ch.includes('m')}  
+  {:else if ch.includes("m")}
     {ch.slice(0, ch.indexOf("m"))}<tspan>{ch.slice(ch.indexOf("m"))}</tspan>
   {:else}
     {ch}
@@ -162,7 +198,9 @@
 
   <!-- CHORDS -->
   <g id="chords">
-    {#each sharps as { v: chordSec }, chordSecInd (chordSec.map((s) => s.ch).join("-"))}
+    {#each sharps as { v: chordSec }, chordSecInd (chordSec
+      .map((s) => s.ch)
+      .join("-"))}
       {#each chordSec as chord, chordInd (`${chord.ch}-${chordInd}`)}
         <g
           id={CHORD_SEQ_TYPE[chordInd]}
@@ -175,7 +213,9 @@
               CHORD_SEQ_TYPE[chordInd] === "dim" //
                 ? CURRENT_SEQ[0] === chordSecInd
                 : CURRENT_SEQ.includes(chordSecInd),
-            [CHORD_CLS.currentKey]: isFirstDegree(modesDeg[chordSecInd].v[chordInd].ch),
+            [CHORD_CLS.currentKey]: isFirstDegree(
+              modesDeg[chordSecInd].v[chordInd].ch,
+            ),
           })}
         >
           <path
@@ -185,7 +225,11 @@
             on:mouseenter={onChordHover(chord.ch)}
             on:mouseleave={onChordHover("")}
           />
-          <text x={SH_C[chordSecInd][chordInd].x} y={SH_C[chordSecInd][chordInd].y}>{@render chordSnippet(chord.ch)}</text>
+          <text
+            x={SH_C[chordSecInd][chordInd].x}
+            y={SH_C[chordSecInd][chordInd].y}
+            >{@render chordSnippet(chord.ch)}</text
+          >
         </g>
       {/each}
     {/each}
@@ -193,10 +237,21 @@
 
   <!-- SCALES -->
   <g id="scales">
-    {#each modesDeg as { v: modeDeg, gi: modeGi }, modeDegSecInd (modeDeg.map(d => d.ch).join("-"))}
-      <text id="description" x={M_DSC_C[modeDegSecInd].x} y={M_DSC_C[modeDegSecInd].y} on:click={onModeClick(modeGi)}>{MODES_ARR_DESC[modeGi]}</text>
+    {#each modesDeg as { v: modeDeg, gi: modeGi }, modeDegSecInd (modeDeg
+      .map((d) => d.ch)
+      .join("-"))}
+      <text
+        id="description"
+        x={M_DSC_C[modeDegSecInd].x}
+        y={M_DSC_C[modeDegSecInd].y}
+        on:click={onModeClick(modeGi)}>{MODES_ARR_DESC[modeGi]}</text
+      >
       {#each modeDeg as { ch: deg }, degInd (`${deg}-${degInd}`)}
-        <text id="degree" x={M_DEG_C[modeDegSecInd][degInd].x} y={M_DEG_C[modeDegSecInd][degInd].y}>{deg}</text>
+        <text
+          id="degree"
+          x={M_DEG_C[modeDegSecInd][degInd].x}
+          y={M_DEG_C[modeDegSecInd][degInd].y}>{deg}</text
+        >
       {/each}
     {/each}
   </g>
