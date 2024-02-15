@@ -145,6 +145,9 @@
       selectedChord = chord;
       selectedChordRid = rid;
 
+      const tonalInfo = tonalChordGet(chord);
+      console.info(tonalInfo);
+
       if (featureState === "loud") {
         H$.stop();
         /** ! extremely important for `H$.play` to consume string as index` ! */
