@@ -2,6 +2,8 @@
   import { clsx } from "clsx";
   import { onMount } from "svelte";
   import { Howl } from "howler";
+  import { get as tonalChordGet } from "@tonaljs/chord";
+  import { toMidi } from "@tonaljs/midi";
 
   import {
     MODES_ARR_DESC, //
@@ -40,26 +42,36 @@
   let sound: Howl;
   let howlerLoaded = $state(false);
   onMount(function prepareHowler() {
-    const sprite: Record<number, [number, number]> = {};
-    const lengthOfNote = 2400;
-    for (
-      let i = 24, timeIndex = 0;
-      i <= 96;
-      i += 1, timeIndex += lengthOfNote
-    ) {
-      sprite[i] = [timeIndex, lengthOfNote];
-    }
+    const prepare = () => {
+      const sprite: Record<number, [number, number]> = {};
+      const lengthOfNote = 2400;
+      for (
+        let i = 24, timeIndex = 0;
+        i <= 96;
+        i += 1, timeIndex += lengthOfNote
+      ) {
+        sprite[i] = [timeIndex, lengthOfNote];
+      }
 
-    sound = new Howl({
-      src: [pianoSprite],
-      sprite,
-      onload() {
-        howlerLoaded = true;
-        // @ts-expect-error
-        console.log((window["sound"] = sound));
-      },
-    });
+      sound = new Howl({
+        src: [pianoSprite],
+        sprite,
+        volume: 0.75,
+        onload() {
+          howlerLoaded = true;
+          // @ts-expect-error
+          console.log((window["sound"] = sound));
+          console.log(pianoSprite);
+        },
+        onunlock: console.info,
+        onloaderror: console.error,
+        onplayerror: console.error,
+      });
 
+      document.removeEventListener("click", prepare);
+    };
+
+    document.addEventListener("click", prepare);
     return function dispose() {
       sound.unload();
     };
@@ -94,6 +106,22 @@
   let onChordClick = (chord: string, rid: number | undefined) => () => {
     selectedChord = chord;
     selectedChordRid = rid;
+
+    if (howlerLoaded) {
+      console.group("play");
+      const tonalCh = tonalChordGet(chord);
+      const tonalNotes = tonalCh.notes;
+      /** note needs an octave for it to be converted to midi */
+      const tonalMidis = tonalNotes.map((n) => `${n}5`).map(toMidi) as number[];
+      tonalMidis.forEach((midi) => {
+        sound.play(midi);
+        console.log({
+          midi, // @ts-expect-error
+          hasSprite: Boolean(sound["_sprite"][midi]),
+        });
+      });
+      console.groupEnd();
+    }
   };
 
   let hoveredChord = $state("");
