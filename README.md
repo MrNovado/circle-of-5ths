@@ -29,4 +29,10 @@ Interactive `circle of 5ths` to help explore music.
   - `shift+click` only rotates modes/degrees
 - `mouse-wheel` rotates chords/sharps
 - can play selected chords
-- see console for additional event/chord info
+  - must choose `go howler` at the beginning
+  - piano sprite is built using FL Studio
+  - howler uses `html5` audio so having hardware acceleration is advised
+  - howler may hang trying to load sections of piano sprite (~6MB total)
+    - disabled hardware acceleration is the main suspect
+    - but reloading the app a few times usually resolves the issue regardless, so hard to tell exactly
+  - see console for additional event/chord info
