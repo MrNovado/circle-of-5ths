@@ -38,9 +38,9 @@
   const modesSeqGen = createSeqGen(MODES_REC);
 
   let H$: Howl;
-  let featureState = $state<"initial" | "armed" | "error" | "silent" | "loud">(
-    "initial",
-  );
+  let featureState = $state<
+    "initial" | "!arming" | "armed" | "error" | "silent" | "loud"
+  >("initial");
 
   const goSilent = () => {
     console.group("@effect/goSilent");
@@ -50,6 +50,7 @@
 
   const goHowler = () => {
     console.group("@effect/goHowler");
+    featureState = "!arming";
 
     const sprite: Record<number, [number, number]> = {};
     const stepLength = 923;
@@ -58,7 +59,7 @@
      * ? almost as if it's incapable of using smaller time steps
      * ? using audio editor you can confirm the actual length of sprites is `923ms`
      * ? with `918ms` being the length of sound msg inside
-     * ? but using those will male howler to overstep selected boundary...
+     * ? but using those will make howler to overstep selected boundary...
      * * so the quick work-around is to just shorten the `spriteLength` to a closest round number
      */
     const spriteLength = 800; // 918
@@ -185,6 +186,10 @@
     <p>Modern browsers require an additional step or two to play audio</p>
     <button on:click={goHowler}>Go howler</button>
     <button on:click={goSilent}>Go silent</button>
+  </center>
+{:else if featureState === "!arming"}
+  <center>
+    <p>Arming Howler! Could take some time (piano sprite is over 5Mb)</p>
   </center>
 {:else if featureState === "armed"}
   <center>
