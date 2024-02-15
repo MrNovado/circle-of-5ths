@@ -1,6 +1,5 @@
 <script lang="ts">
   import { clsx } from "clsx";
-  import { onMount } from "svelte";
   import { Howl } from "howler";
   import { get as tonalChordGet } from "@tonaljs/chord";
 
@@ -51,72 +50,68 @@
 
   const goHowler = () => {
     console.group("@effect/goHowler");
-    const prepare = () => {
-      const sprite: Record<number, [number, number]> = {};
-      const stepLength = 923;
-      /**
-       * ? there's something wrong with howler and sprite timings
-       * ? almost as if it's incapable of using smaller time steps
-       * ? using audio editor you can confirm the actual length of sprites is `923ms`
-       * ? with `918ms` being the length of sound msg inside
-       * ? but using those will male howler to overstep selected boundary...
-       * * so the quick work-around is to just shorten the `spriteLength` to a closest round number
-       */
-      const spriteLength = 800; // 918
-      for (
-        let i = 0, startTime = 0;
-        i < 36; //
-        i += 1, startTime += stepLength
-      ) {
-        sprite[i] = [startTime, spriteLength];
-      }
 
-      H$ = new Howl({
-        src: [pianoSpriteURL],
-        sprite,
-        volume: 0.75,
-        html5: true,
-        onload: () => {
-          console.group("@howler/onload");
-          if (featureState !== "initial") {
-            /**
-             * This seems to be happening when you play several sprites in quick succession.
-             * I.e. when you do several `H$.play(x)` without stopping `H$.stop()` the current play first.
-             */
-            console.warn("onload miss-fire");
-            console.groupEnd();
-            return;
-          }
+    const sprite: Record<number, [number, number]> = {};
+    const stepLength = 923;
+    /**
+     * ? there's something wrong with howler and sprite timings
+     * ? almost as if it's incapable of using smaller time steps
+     * ? using audio editor you can confirm the actual length of sprites is `923ms`
+     * ? with `918ms` being the length of sound msg inside
+     * ? but using those will male howler to overstep selected boundary...
+     * * so the quick work-around is to just shorten the `spriteLength` to a closest round number
+     */
+    const spriteLength = 800; // 918
+    for (
+      let i = 0, startTime = 0;
+      i < 36; //
+      i += 1, startTime += stepLength
+    ) {
+      sprite[i] = [startTime, spriteLength];
+    }
 
-          featureState = "armed";
-          // @ts-expect-error
-          console.log((window["H$"] = H$));
-          console.log(pianoSpriteURL);
+    H$ = new Howl({
+      src: [pianoSpriteURL],
+      sprite,
+      volume: 0.75,
+      html5: true,
+      onload: () => {
+        console.group("@howler/onload");
+        if (featureState !== "initial") {
+          /**
+           * This seems to be happening when you play several sprites in quick succession.
+           * I.e. when you do several `H$.play(x)` without stopping `H$.stop()` the current play first.
+           */
+          console.warn("onload miss-fire");
           console.groupEnd();
-        },
-        onunlock: () => {
-          console.group("@howler/onunlock");
-          featureState = "loud";
-          console.groupEnd();
-        },
-        onloaderror: (_, error) => {
-          console.group("@howler/onunlock");
-          featureState = "error";
-          console.error(error);
-          console.groupEnd();
-        },
-        onplayerror: (_, error) => {
-          console.group("@howler/onplayerror");
-          featureState = "error";
-          console.error(error);
-          console.groupEnd();
-        },
-      });
+          return;
+        }
 
-      document.removeEventListener("click", prepare);
-    };
+        featureState = "armed";
+        // @ts-expect-error
+        console.log((window["H$"] = H$));
+        console.log(pianoSpriteURL);
+        console.groupEnd();
+      },
+      onunlock: () => {
+        console.group("@howler/onunlock");
+        featureState = "loud";
+        console.groupEnd();
+      },
+      onloaderror: (_, error) => {
+        console.group("@howler/onunlock");
+        featureState = "error";
+        console.error(error);
+        console.groupEnd();
+      },
+      onplayerror: (_, error) => {
+        console.group("@howler/onplayerror");
+        featureState = "error";
+        console.error(error);
+        console.groupEnd();
+      },
+    });
 
-    document.addEventListener("click", prepare);
     console.groupEnd();
   };
 
