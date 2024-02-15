@@ -78,7 +78,7 @@
       html5: true,
       onload: () => {
         console.group("@howler/onload");
-        if (featureState !== "initial") {
+        if (featureState !== "!arming") {
           /**
            * This seems to be happening when you play several sprites in quick succession.
            * I.e. when you do several `H$.play(x)` without stopping `H$.stop()` the current play first.
