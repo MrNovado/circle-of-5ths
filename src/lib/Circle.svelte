@@ -22,7 +22,7 @@
     createSeqGen,
   } from "./common";
 
-  import pianoSpriteURL from "/pianosprite.mp3?url";
+  import pianoSpriteURL from "/pianosprite.wav?url";
 
   const CHORD_CLS = {
     selected: "ch-selected",
@@ -39,15 +39,23 @@
   const modesSeqGen = createSeqGen(MODES_REC);
 
   let H$: Howl;
-  let howlerLoaded = $state(false);
-  onMount(function prepareHowler() {
+  let featureState = $state<"initial" | "armed" | "error" | "silent" | "loud">(
+    "initial",
+  );
+
+  const goSilent = () => {
+    featureState = "silent";
+  };
+
+  const goHowler = () => {
     const prepare = () => {
       const sprite: Record<number, [number, number]> = {};
-      const spriteLength = 2300;
+      const stepLength = 923;
+      const spriteLength = 800;
       for (
-        let i = 24, startTime = 0; //
-        i <= 96; //
-        i += 1, startTime += spriteLength
+        let i = 0, startTime = 0;
+        i < 36; //
+        i += 1, startTime += stepLength
       ) {
         sprite[i] = [startTime, spriteLength];
       }
@@ -58,13 +66,18 @@
         volume: 0.75,
         html5: true,
         onload() {
-          howlerLoaded = true;
+          featureState = "armed";
           // @ts-expect-error
           console.log((window["H$"] = H$));
           console.log(pianoSpriteURL);
         },
-        onunlock: console.info,
-        onloaderror: console.error,
+        onunlock: () => {
+          featureState = "loud";
+        },
+        onloaderror: (_, error) => {
+          featureState = "error";
+          console.error(error);
+        },
         onplayerror: console.error,
       });
 
@@ -72,10 +85,7 @@
     };
 
     document.addEventListener("click", prepare);
-    return function dispose() {
-      H$.unload();
-    };
-  });
+  };
 
   let sharpsCurrentIndex = $state(0);
   let onWheel = (e: WheelEvent) => {
@@ -103,30 +113,19 @@
 
   let selectedChord = $state("");
   let selectedChordRid = $state<number | undefined>(undefined);
-  let onChordClick = (chord: string, rid: number | undefined) => () => {
-    selectedChord = chord;
-    selectedChordRid = rid;
+  let onChordClick =
+    (chord: string, rid: number | undefined, chGI: number | undefined) =>
+    () => {
+      selectedChord = chord;
+      selectedChordRid = rid;
 
-    // if (howlerLoaded) {
-    //   console.group("play");
-    //   const tonalCh = tonalChordGet(chord);
-    //   const tonalNotes = tonalCh.notes;
-    //   /** note needs an octave for it to be converted to midi */
-    //   const tonalMidis = tonalNotes.map((n) => `${n}5`).map(toMidi) as number[];
-
-    //   H$.stop();
-    //   tonalMidis.forEach((midi) => {
-    //     /** ! extremely important for `H$.play` to consume midi-`string` ! */
-    //     H$.play(midi.toString());
-    //     console.log({
-    //       midi, // @ts-expect-error
-    //       hasSprite: Boolean(H$["_sprite"][midi]),
-    //     });
-    //   });
-
-    //   console.groupEnd();
-    // }
-  };
+      if (featureState === "loud") {
+        console.group("play");
+        /** ! extremely important for `H$.play` to consume string as index` ! */
+        H$.play(`${chGI}`);
+        console.groupEnd();
+      }
+    };
 
   let hoveredChord = $state("");
   let onChordHover = (chord: string) => () => {
@@ -148,149 +147,164 @@
   {/if}
 {/snippet}
 
-<svg
-  width="1280"
-  height="720"
-  viewBox="0 0 338.66667 190.5"
-  version="1.1"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns="http://www.w3.org/2000/svg"
-  on:wheel={onWheel}
->
-  <!-- BASE -->
-  <g id="base">
-    <circle
-      style="fill:#483737;stroke:#000000;stroke-width:0.282384;stroke-opacity:1"
-      cx="170.25014"
-      cy="94.998505"
-      r="93.130554"
-      id="c-5"
-    />
-    <circle
-      style="fill:#4d4d4d;stroke:#000000;stroke-width:0.219165;stroke-opacity:1"
-      cx="170.0155"
-      cy="95.469307"
-      r="72.281174"
-      id="c-4"
-    />
-    <circle
-      style="fill:#666666;stroke:#000000;stroke-width:0.157765;stroke-opacity:1"
-      cx="170.15266"
-      cy="95.417755"
-      r="52.0313"
-      id="c-3"
-    />
-    <circle
-      style="fill:#999999;stroke:#000000;stroke-width:0.0991926;stroke-opacity:1"
-      cx="170.16478"
-      cy="95.405266"
-      r="32.713982"
-      id="c-2"
-    />
-    <circle
-      style="fill:#241c1c;fill-opacity:1;stroke:#000000;stroke-width:0.0377926;stroke-opacity:1"
-      cx="170.22058"
-      cy="95.438683"
-      r="12.464105"
-      id="c-1"
-    />
-    <path
-      style="fill:#241c1c;stroke:#241c1c;stroke-width:0.264583;stroke-opacity:0.299517"
-      d="M 104.33823,160.77694 C 236.02856,29.086616 236.02856,29.086616 236.02856,29.086616"
-      id="line"
-    />
-    <path
-      style="fill:#241c1c;stroke:#241c1c;stroke-width:0.264583;stroke-opacity:0.299517"
-      d="M 146.10021,185.06026 C 194.27544,5.2678652 194.53343,5.336994 194.53343,5.336994 v 0"
-      id="line"
-    />
-    <path
-      style="fill:#241c1c;stroke:#241c1c;stroke-width:0.264583;stroke-opacity:0.299517"
-      d="M 194.93371,184.52657 C 146.80971,4.9253653 146.76733,4.9367193 146.76733,4.9367193"
-      id="line"
-    />
-    <path
-      style="fill:#241c1c;stroke:#241c1c;stroke-width:0.264583;stroke-opacity:0.299517"
-      d="M 236.42883,160.91037 C 104.53837,29.019904 104.73851,28.819768 104.73851,28.819768"
-      id="line"
-    />
-    <path
-      style="fill:#241c1c;stroke:#241c1c;stroke-width:0.264583;stroke-opacity:0.299517"
-      d="M 260.04503,119.14839 C 80.34376,70.997579 80.34376,70.997579 80.34376,70.997579"
-      id="line"
-    />
-    <path
-      style="fill:#241c1c;stroke:#241c1c;stroke-width:0.264583;stroke-opacity:0.299517"
-      d="M 260.04503,70.715171 C 80.377116,118.85704 80.377116,118.85704 80.377116,118.85704"
-      id="line"
-    />
-  </g>
+{#if featureState === "initial"}
+  <center>
+    <button on:click={goHowler}>Go with howler</button>
+    <button on:click={goSilent}>Go silent</button>
+  </center>
+{:else if featureState === "armed"}
+  <center>
+    <button>Unlock audio</button>
+  </center>
+{:else if featureState === "error"}
+  <center>
+    <p>Something went wrong, howler' down; try reloading or file an issue</p>
+  </center>
+{:else}
+  <svg
+    width="1280"
+    height="720"
+    viewBox="0 0 338.66667 190.5"
+    version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://www.w3.org/2000/svg"
+    on:wheel={onWheel}
+  >
+    <!-- BASE -->
+    <g id="base">
+      <circle
+        style="fill:#483737;stroke:#000000;stroke-width:0.282384;stroke-opacity:1"
+        cx="170.25014"
+        cy="94.998505"
+        r="93.130554"
+        id="c-5"
+      />
+      <circle
+        style="fill:#4d4d4d;stroke:#000000;stroke-width:0.219165;stroke-opacity:1"
+        cx="170.0155"
+        cy="95.469307"
+        r="72.281174"
+        id="c-4"
+      />
+      <circle
+        style="fill:#666666;stroke:#000000;stroke-width:0.157765;stroke-opacity:1"
+        cx="170.15266"
+        cy="95.417755"
+        r="52.0313"
+        id="c-3"
+      />
+      <circle
+        style="fill:#999999;stroke:#000000;stroke-width:0.0991926;stroke-opacity:1"
+        cx="170.16478"
+        cy="95.405266"
+        r="32.713982"
+        id="c-2"
+      />
+      <circle
+        style="fill:#241c1c;fill-opacity:1;stroke:#000000;stroke-width:0.0377926;stroke-opacity:1"
+        cx="170.22058"
+        cy="95.438683"
+        r="12.464105"
+        id="c-1"
+      />
+      <path
+        style="fill:#241c1c;stroke:#241c1c;stroke-width:0.264583;stroke-opacity:0.299517"
+        d="M 104.33823,160.77694 C 236.02856,29.086616 236.02856,29.086616 236.02856,29.086616"
+        id="line"
+      />
+      <path
+        style="fill:#241c1c;stroke:#241c1c;stroke-width:0.264583;stroke-opacity:0.299517"
+        d="M 146.10021,185.06026 C 194.27544,5.2678652 194.53343,5.336994 194.53343,5.336994 v 0"
+        id="line"
+      />
+      <path
+        style="fill:#241c1c;stroke:#241c1c;stroke-width:0.264583;stroke-opacity:0.299517"
+        d="M 194.93371,184.52657 C 146.80971,4.9253653 146.76733,4.9367193 146.76733,4.9367193"
+        id="line"
+      />
+      <path
+        style="fill:#241c1c;stroke:#241c1c;stroke-width:0.264583;stroke-opacity:0.299517"
+        d="M 236.42883,160.91037 C 104.53837,29.019904 104.73851,28.819768 104.73851,28.819768"
+        id="line"
+      />
+      <path
+        style="fill:#241c1c;stroke:#241c1c;stroke-width:0.264583;stroke-opacity:0.299517"
+        d="M 260.04503,119.14839 C 80.34376,70.997579 80.34376,70.997579 80.34376,70.997579"
+        id="line"
+      />
+      <path
+        style="fill:#241c1c;stroke:#241c1c;stroke-width:0.264583;stroke-opacity:0.299517"
+        d="M 260.04503,70.715171 C 80.377116,118.85704 80.377116,118.85704 80.377116,118.85704"
+        id="line"
+      />
+    </g>
 
-  <!-- CHORDS -->
-  <g id="chords">
-    {#each sharps as { v: chordSec, sGI }, chordSecInd (sGI)}
-      {#each chordSec as chord, chordInd (chord.chGI)}
-        <g
-          id={CHORD_SEQ_TYPE[chordInd]}
-          class={clsx({
-            [CHORD_CLS.selected]: selectedChord === chord.ch,
-            [CHORD_CLS.idle]: selectedChord !== chord.ch,
-            [CHORD_CLS.hover]: hoveredChord === chord.ch,
-            [CHORD_CLS.relevant]: selectedChordRid === chord.rId,
-            [CHORD_CLS.current]:
-              CHORD_SEQ_TYPE[chordInd] === "dim" //
-                ? CURRENT_SEQ[0] === chordSecInd
-                : CURRENT_SEQ.includes(chordSecInd),
-            [CHORD_CLS.currentKey]: isFirstDegree(
-              modesDeg[chordSecInd].v[chordInd].ch,
-            ),
-          })}
-        >
-          <path
-            id="frame"
-            d={SH_C[chordSecInd][chordInd].d}
-            on:click={onChordClick(chord.ch, chord.rId)}
-            on:mouseenter={onChordHover(chord.ch)}
-            on:mouseleave={onChordHover("")}
-          />
-          <text
-            x={SH_C[chordSecInd][chordInd].x}
-            y={SH_C[chordSecInd][chordInd].y}
-            >{@render chordSnippet(chord.ch)}</text
+    <!-- CHORDS -->
+    <g id="chords">
+      {#each sharps as { v: chordSec, sGI }, chordSecInd (sGI)}
+        {#each chordSec as chord, chordInd (chord.chGI)}
+          <g
+            id={CHORD_SEQ_TYPE[chordInd]}
+            class={clsx({
+              [CHORD_CLS.selected]: selectedChord === chord.ch,
+              [CHORD_CLS.idle]: selectedChord !== chord.ch,
+              [CHORD_CLS.hover]: hoveredChord === chord.ch,
+              [CHORD_CLS.relevant]: selectedChordRid === chord.rId,
+              [CHORD_CLS.current]:
+                CHORD_SEQ_TYPE[chordInd] === "dim" //
+                  ? CURRENT_SEQ[0] === chordSecInd
+                  : CURRENT_SEQ.includes(chordSecInd),
+              [CHORD_CLS.currentKey]: isFirstDegree(
+                modesDeg[chordSecInd].v[chordInd].ch,
+              ),
+            })}
           >
-        </g>
+            <path
+              id="frame"
+              d={SH_C[chordSecInd][chordInd].d}
+              on:click={onChordClick(chord.ch, chord.rId, chord.chGI)}
+              on:mouseenter={onChordHover(chord.ch)}
+              on:mouseleave={onChordHover("")}
+            />
+            <text
+              x={SH_C[chordSecInd][chordInd].x}
+              y={SH_C[chordSecInd][chordInd].y}
+              >{@render chordSnippet(chord.ch)}</text
+            >
+          </g>
+        {/each}
       {/each}
-    {/each}
-  </g>
+    </g>
 
-  <!-- SCALES -->
-  <g id="scales">
-    {#each modesDeg as { v: modeDeg, sGI: modeGI }, modeDegSecInd (modeGI)}
-      <text
-        id="description"
-        x={M_DSC_C[modeDegSecInd].x}
-        y={M_DSC_C[modeDegSecInd].y}
-        on:click={onModeClick(modeGI)}>{MODES_ARR_DESC[modeGI]}</text
-      >
-      {#each modeDeg as { ch: deg }, degInd (`${deg}-${degInd}`)}
+    <!-- SCALES -->
+    <g id="scales">
+      {#each modesDeg as { v: modeDeg, sGI: modeGI }, modeDegSecInd (modeGI)}
         <text
-          id="degree"
-          x={M_DEG_C[modeDegSecInd][degInd].x}
-          y={M_DEG_C[modeDegSecInd][degInd].y}>{deg}</text
+          id="description"
+          x={M_DSC_C[modeDegSecInd].x}
+          y={M_DSC_C[modeDegSecInd].y}
+          on:click={onModeClick(modeGI)}>{MODES_ARR_DESC[modeGI]}</text
         >
+        {#each modeDeg as { ch: deg }, degInd (`${deg}-${degInd}`)}
+          <text
+            id="degree"
+            x={M_DEG_C[modeDegSecInd][degInd].x}
+            y={M_DEG_C[modeDegSecInd][degInd].y}>{deg}</text
+          >
+        {/each}
       {/each}
-    {/each}
-  </g>
+    </g>
 
-  <!-- SELECTOR -->
-  <g id="selector">
-    <path
-      style="opacity:1;fill:rgba(195,195,195,0.1);stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;pointer-events:none;"
-      d="M 206.68725,58.423036 C 200.01623,51.906732 192.75052,47.553134 183.73253,45.219031 l 5.23999,-19.421981 c -12.14357,-3.343445 -24.49896,-3.509409 -36.70093,-0.382785 l 5.23681,19.532928 c -9.16835,2.320595 -16.86009,6.658893 -23.65694,13.177775 l 28.01343,28.099919 c 4.75117,-4.328928 12.15407,-4.274596 16.88215,0.141774 z"
-      id="selector-path"
-    />
-  </g>
-</svg>
+    <!-- SELECTOR -->
+    <g id="selector">
+      <path
+        style="opacity:1;fill:rgba(195,195,195,0.1);stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;pointer-events:none;"
+        d="M 206.68725,58.423036 C 200.01623,51.906732 192.75052,47.553134 183.73253,45.219031 l 5.23999,-19.421981 c -12.14357,-3.343445 -24.49896,-3.509409 -36.70093,-0.382785 l 5.23681,19.532928 c -9.16835,2.320595 -16.86009,6.658893 -23.65694,13.177775 l 28.01343,28.099919 c 4.75117,-4.328928 12.15407,-4.274596 16.88215,0.141774 z"
+        id="selector-path"
+      />
+    </g>
+  </svg>
+{/if}
 
 <style>
   svg {
