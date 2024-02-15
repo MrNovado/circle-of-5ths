@@ -44,7 +44,7 @@
   onMount(function prepareHowler() {
     const prepare = () => {
       const sprite: Record<number, [number, number]> = {};
-      const spriteLength = 2400;
+      const spriteLength = 2300;
       for (
         let i = 24, startTime = 0; //
         i <= 96; //
@@ -114,6 +114,8 @@
       const tonalNotes = tonalCh.notes;
       /** note needs an octave for it to be converted to midi */
       const tonalMidis = tonalNotes.map((n) => `${n}5`).map(toMidi) as number[];
+
+      sound.stop();
       tonalMidis.forEach((midi) => {
         /** ! extremely important for `sound.play` to consume midi-`string` ! */
         sound.play(midi.toString());
@@ -122,6 +124,7 @@
           hasSprite: Boolean(sound["_sprite"][midi]),
         });
       });
+
       console.groupEnd();
     }
   };
