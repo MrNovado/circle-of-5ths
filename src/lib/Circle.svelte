@@ -36,49 +36,37 @@
   const SH_M$ = sharpsMachine();
   const HW_M$ = howlerMachine({
     onload: () => {
-      console.group("@howler/onload");
       if (featureState !== "!arming") {
         /**
          * This seems to be happening when you play several sprites in quick succession.
          * I.e. when you do several `H$.play(x)` without stopping `H$.stop()` the current play first.
          */
         console.warn("onload miss-fire");
-        console.groupEnd();
         return;
       }
 
       featureState = "armed";
     },
     onunlock: () => {
-      console.group("@howler/onunlock");
       featureState = "loud";
-      console.groupEnd();
     },
     onloaderror: (_, error) => {
-      console.group("@howler/onunlock");
       featureState = "error";
       console.error(error);
-      console.groupEnd();
     },
     onplayerror: (_, error) => {
-      console.group("@howler/onplayerror");
       featureState = "error";
       console.error(error);
-      console.groupEnd();
     },
   });
 
   const goSilent = () => {
-    console.group("@effect/goSilent");
     featureState = "silent";
-    console.groupEnd();
   };
 
   const goHowler = () => {
-    console.group("@effect/goHowler");
     featureState = "!arming";
     HW_M$.howlerArm();
-    console.groupEnd();
   };
 
   let onWheel = (e: WheelEvent) => {
@@ -98,7 +86,6 @@
   let onChordClick =
     (chord: string, rid: number | undefined, chGI: number | undefined) =>
     () => {
-      console.group("@effect/onChordClick");
       SH_M$.sharpsSelectChord(chord, rid);
 
       const tonalInfo = tonalChordGet(chord);
@@ -112,8 +99,6 @@
          * */
         HW_M$.howlerPlay(chGI!);
       }
-
-      console.groupEnd();
     };
 
   let onChordHover = (chord: string) => () => {
