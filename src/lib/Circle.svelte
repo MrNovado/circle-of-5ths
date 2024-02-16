@@ -32,26 +32,9 @@
     "initial" | "!arming" | "armed" | "error" | "silent" | "loud"
   >("initial");
 
-  const {
-    modesDeg, //
-    modeChange,
-  } = modesMachine();
-
-  const {
-    sharps, //
-    sharpsRotate,
-    sharpsChange,
-    selectedChord,
-    selectedChordRid,
-    sharpsSelectChord,
-    hoveredChord,
-    sharpsHighlightChord,
-  } = sharpsMachine();
-
-  const {
-    howlerArm, //
-    howlerPlay,
-  } = howlerMachine({
+  const MD_M$ = modesMachine();
+  const SH_M$ = sharpsMachine();
+  const HW_M$ = howlerMachine({
     onload: () => {
       console.group("@howler/onload");
       if (featureState !== "!arming") {
@@ -94,21 +77,21 @@
   const goHowler = () => {
     console.group("@effect/goHowler");
     featureState = "!arming";
-    howlerArm();
+    HW_M$.howlerArm();
     console.groupEnd();
   };
 
   let onWheel = (e: WheelEvent) => {
-    sharpsRotate(e.deltaY > 0 ? "down" : "up");
+    SH_M$.sharpsRotate(e.deltaY > 0 ? "down" : "up");
   };
 
   let onModeClick =
     (modeGI: number, modeDegSeqInd: number) => (e: MouseEvent) => {
       if (e.shiftKey) {
-        modeChange(modeGI);
+        MD_M$.modeChange(modeGI);
       } else {
-        modeChange(modeGI);
-        sharpsChange(modeDegSeqInd);
+        MD_M$.modeChange(modeGI);
+        SH_M$.sharpsChange(modeDegSeqInd);
       }
     };
 
@@ -116,10 +99,10 @@
     (chord: string, rid: number | undefined, chGI: number | undefined) =>
     () => {
       console.group("@effect/onChordClick");
-      sharpsSelectChord(chord, rid);
+      SH_M$.sharpsSelectChord(chord, rid);
 
       const tonalInfo = tonalChordGet(chord);
-      console.info(tonalInfo);
+      console.info(tonalInfo.name);
 
       if (featureState === "loud") {
         /**
@@ -127,14 +110,14 @@
          * but declared optional
          * for convenience of expanding chord schema
          * */
-        howlerPlay(chGI!);
+        HW_M$.howlerPlay(chGI!);
       }
 
       console.groupEnd();
     };
 
   let onChordHover = (chord: string) => () => {
-    sharpsHighlightChord(chord);
+    SH_M$.sharpsHighlightChord(chord);
   };
 
   // TODO: chord/modes uuids ?
@@ -254,21 +237,21 @@
 
     <!-- CHORDS -->
     <g id="chords">
-      {#each sharps as { v: chordSec, sGI }, chordSeqInd (`${sGI}-${chordSeqInd}`)}
+      {#each SH_M$.sharps as { v: chordSec, sGI }, chordSeqInd (`${sGI}-${chordSeqInd}`)}
         {#each chordSec as chord, chordInd (`${chord.chGI}-${chordInd}`)}
           <g
             id={CHORD_SEQ_TYPE[chordInd]}
             class={clsx({
-              [CHORD_CLS.selected]: selectedChord === chord.ch,
-              [CHORD_CLS.idle]: selectedChord !== chord.ch,
-              [CHORD_CLS.hover]: hoveredChord === chord.ch,
-              [CHORD_CLS.relevant]: selectedChordRid === chord.rId,
+              [CHORD_CLS.selected]: SH_M$.selectedChord === chord.ch,
+              [CHORD_CLS.idle]: SH_M$.selectedChord !== chord.ch,
+              [CHORD_CLS.hover]: SH_M$.hoveredChord === chord.ch,
+              [CHORD_CLS.relevant]: SH_M$.selectedChordRid === chord.rId,
               [CHORD_CLS.current]:
                 CHORD_SEQ_TYPE[chordInd] === "dim" //
                   ? CURRENT_SEQ[0] === chordSeqInd
                   : CURRENT_SEQ.includes(chordSeqInd),
               [CHORD_CLS.currentKey]: isFirstDegree(
-                modesDeg[chordSeqInd].v[chordInd].ch,
+                MD_M$.modesDeg[chordSeqInd].v[chordInd].ch,
               ),
             })}
           >
@@ -291,7 +274,7 @@
 
     <!-- SCALES -->
     <g id="scales">
-      {#each modesDeg as { v: modeDeg, sGI: modeGI }, modeDegSeqInd (`${modeGI}-${modeDegSeqInd}`)}
+      {#each MD_M$.modesDeg as { v: modeDeg, sGI: modeGI }, modeDegSeqInd (`${modeGI}-${modeDegSeqInd}`)}
         <text
           id="description"
           x={M_DSC_C[modeDegSeqInd].x}
