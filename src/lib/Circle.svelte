@@ -75,7 +75,7 @@
       src: [pianoSpriteURL],
       sprite,
       volume: 0.75,
-      html5: true,
+      preload: true,
       onload: () => {
         console.group("@howler/onload");
         if (featureState !== "!arming") {
