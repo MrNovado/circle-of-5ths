@@ -33,6 +33,7 @@ Interactive `circle of 5ths` to help explore music.
   - piano sprite is built using FL Studio
   - howler uses `html5` audio so having hardware acceleration is advised
   - howler may hang trying to load sections of piano sprite (~6MB total)
-    - disabled hardware acceleration is the main suspect
-    - but reloading the app a few times usually resolves the issue regardless, so hard to tell exactly
+    - ~~disabled hardware acceleration is the main suspect~~
+    - ~~but reloading the app a few times usually resolves the issue regardless, so hard to tell exactly~~
+    - should be resolved via complete preloading at the start, but will see
   - see console for additional event/chord info

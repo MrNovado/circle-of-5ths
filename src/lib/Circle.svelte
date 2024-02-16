@@ -37,6 +37,11 @@
   const sharpsSeqGen = createSeqGen(SHARPS_REC_SHARP_ONLY);
   const modesSeqGen = createSeqGen(MODES_REC);
 
+  let sharpsCurrentIndex = $state(0);
+  let modeCurrentIndex = $state(0);
+  let sharps = $derived([...sharpsSeqGen(sharpsCurrentIndex)]);
+  let modesDeg = $derived([...modesSeqGen(modeCurrentIndex)]);
+
   let H$: Howl;
   let featureState = $state<
     "initial" | "!arming" | "armed" | "error" | "silent" | "loud"
@@ -116,7 +121,6 @@
     console.groupEnd();
   };
 
-  let sharpsCurrentIndex = $state(0);
   let onWheel = (e: WheelEvent) => {
     if (e.deltaY > 0) {
       sharpsCurrentIndex =
@@ -127,18 +131,15 @@
     }
   };
 
-  let modeCurrentIndex = $state(0);
-  let onModeClick = (mode: number) => (e: MouseEvent) => {
-    if (e.shiftKey) {
-      modeCurrentIndex = mode;
-    } else {
-      modeCurrentIndex = mode;
-      sharpsCurrentIndex = mode;
-    }
-  };
-
-  let sharps = $derived([...sharpsSeqGen(sharpsCurrentIndex)]);
-  let modesDeg = $derived([...modesSeqGen(modeCurrentIndex)]);
+  let onModeClick =
+    (modeGI: number, modeDegSeqInd: number) => (e: MouseEvent) => {
+      if (e.shiftKey) {
+        modeCurrentIndex = modeGI;
+      } else {
+        modeCurrentIndex = modeGI;
+        sharpsCurrentIndex = sharps[modeDegSeqInd].sGI;
+      }
+    };
 
   let selectedChord = $state("");
   let selectedChordRid = $state<number | undefined>(undefined);
@@ -165,6 +166,8 @@
   let onChordHover = (chord: string) => () => {
     hoveredChord = chord;
   };
+
+  // TODO: chord/modes uuids ?
 </script>
 
 {#snippet chordSnippet(ch: string)}
@@ -281,8 +284,8 @@
 
     <!-- CHORDS -->
     <g id="chords">
-      {#each sharps as { v: chordSec, sGI }, chordSecInd (sGI)}
-        {#each chordSec as chord, chordInd (chord.chGI)}
+      {#each sharps as { v: chordSec, sGI }, chordSeqInd (`${sGI}-${chordSeqInd}`)}
+        {#each chordSec as chord, chordInd (`${chord.chGI}-${chordInd}`)}
           <g
             id={CHORD_SEQ_TYPE[chordInd]}
             class={clsx({
@@ -292,23 +295,23 @@
               [CHORD_CLS.relevant]: selectedChordRid === chord.rId,
               [CHORD_CLS.current]:
                 CHORD_SEQ_TYPE[chordInd] === "dim" //
-                  ? CURRENT_SEQ[0] === chordSecInd
-                  : CURRENT_SEQ.includes(chordSecInd),
+                  ? CURRENT_SEQ[0] === chordSeqInd
+                  : CURRENT_SEQ.includes(chordSeqInd),
               [CHORD_CLS.currentKey]: isFirstDegree(
-                modesDeg[chordSecInd].v[chordInd].ch,
+                modesDeg[chordSeqInd].v[chordInd].ch,
               ),
             })}
           >
             <path
               id="frame"
-              d={SH_C[chordSecInd][chordInd].d}
+              d={SH_C[chordSeqInd][chordInd].d}
               on:click={onChordClick(chord.ch, chord.rId, chord.chGI)}
               on:mouseenter={onChordHover(chord.ch)}
               on:mouseleave={onChordHover("")}
             />
             <text
-              x={SH_C[chordSecInd][chordInd].x}
-              y={SH_C[chordSecInd][chordInd].y}
+              x={SH_C[chordSeqInd][chordInd].x}
+              y={SH_C[chordSeqInd][chordInd].y}
               >{@render chordSnippet(chord.ch)}</text
             >
           </g>
@@ -318,18 +321,19 @@
 
     <!-- SCALES -->
     <g id="scales">
-      {#each modesDeg as { v: modeDeg, sGI: modeGI }, modeDegSecInd (modeGI)}
+      {#each modesDeg as { v: modeDeg, sGI: modeGI }, modeDegSeqInd (`${modeGI}-${modeDegSeqInd}`)}
         <text
           id="description"
-          x={M_DSC_C[modeDegSecInd].x}
-          y={M_DSC_C[modeDegSecInd].y}
-          on:click={onModeClick(modeGI)}>{MODES_ARR_DESC[modeGI]}</text
+          x={M_DSC_C[modeDegSeqInd].x}
+          y={M_DSC_C[modeDegSeqInd].y}
+          on:click={onModeClick(modeGI, modeDegSeqInd)}
+          >{MODES_ARR_DESC[modeGI]}</text
         >
         {#each modeDeg as { ch: deg }, degInd (`${deg}-${degInd}`)}
           <text
             id="degree"
-            x={M_DEG_C[modeDegSecInd][degInd].x}
-            y={M_DEG_C[modeDegSecInd][degInd].y}>{deg}</text
+            x={M_DEG_C[modeDegSeqInd][degInd].x}
+            y={M_DEG_C[modeDegSeqInd][degInd].y}>{deg}</text
           >
         {/each}
       {/each}
