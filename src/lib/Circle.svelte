@@ -1,27 +1,21 @@
 <script lang="ts">
   import { clsx } from "clsx";
-  import { Howl } from "howler";
   import { get as tonalChordGet } from "@tonaljs/chord";
 
   import {
     MODES_ARR_DESC, //
     MODES_DESC_COORDS as M_DSC_C,
-    MODES_REC,
     MODES_DEG_COORDS as M_DEG_C,
     isFirstDegree,
-  } from "./components/Modes";
+  } from "./data/Modes";
 
-  import {
-    SHARPS_COORDS as SH_C,
-    SHARPS_REC_SHARP_ONLY,
-  } from "./components/Sharps";
+  import { SHARPS_COORDS as SH_C } from "./data/Sharps";
 
-  import {
-    CURRENT_SEQ, //
-    createSeqGen,
-  } from "./common";
+  import { modesMachine } from "./logic/Modes.svelte";
+  import { sharpsMachine } from "./logic/Sharps.svelte";
+  import { howlerMachine } from "./logic/Howler.svelte";
 
-  import pianoSpriteURL from "/pianosprite.wav?url";
+  import { CURRENT_SEQ } from "./common";
 
   const CHORD_CLS = {
     selected: "ch-selected",
@@ -34,18 +28,62 @@
 
   const CHORD_SEQ_TYPE = ["dim", "minor", "major"];
 
-  const sharpsSeqGen = createSeqGen(SHARPS_REC_SHARP_ONLY);
-  const modesSeqGen = createSeqGen(MODES_REC);
-
-  let sharpsCurrentIndex = $state(0);
-  let modeCurrentIndex = $state(0);
-  let sharps = $derived([...sharpsSeqGen(sharpsCurrentIndex)]);
-  let modesDeg = $derived([...modesSeqGen(modeCurrentIndex)]);
-
-  let H$: Howl;
   let featureState = $state<
     "initial" | "!arming" | "armed" | "error" | "silent" | "loud"
   >("initial");
+
+  const {
+    modesDeg, //
+    modeChange,
+  } = modesMachine();
+
+  const {
+    sharps, //
+    sharpsRotate,
+    sharpsChange,
+    selectedChord,
+    selectedChordRid,
+    sharpsSelectChord,
+    hoveredChord,
+    sharpsHighlightChord,
+  } = sharpsMachine();
+
+  const {
+    howlerArm, //
+    howlerPlay,
+  } = howlerMachine({
+    onload: () => {
+      console.group("@howler/onload");
+      if (featureState !== "!arming") {
+        /**
+         * This seems to be happening when you play several sprites in quick succession.
+         * I.e. when you do several `H$.play(x)` without stopping `H$.stop()` the current play first.
+         */
+        console.warn("onload miss-fire");
+        console.groupEnd();
+        return;
+      }
+
+      featureState = "armed";
+    },
+    onunlock: () => {
+      console.group("@howler/onunlock");
+      featureState = "loud";
+      console.groupEnd();
+    },
+    onloaderror: (_, error) => {
+      console.group("@howler/onunlock");
+      featureState = "error";
+      console.error(error);
+      console.groupEnd();
+    },
+    onplayerror: (_, error) => {
+      console.group("@howler/onplayerror");
+      featureState = "error";
+      console.error(error);
+      console.groupEnd();
+    },
+  });
 
   const goSilent = () => {
     console.group("@effect/goSilent");
@@ -56,115 +94,47 @@
   const goHowler = () => {
     console.group("@effect/goHowler");
     featureState = "!arming";
-
-    const sprite: Record<number, [number, number]> = {};
-    const stepLength = 923;
-    /**
-     * ? there's something wrong with howler and sprite timings
-     * ? almost as if it's incapable of using smaller time steps
-     * ? using audio editor you can confirm the actual length of sprites is `923ms`
-     * ? with `918ms` being the length of sound msg inside
-     * ? but using those will make howler to overstep selected boundary...
-     * * so the quick work-around is to just shorten the `spriteLength` to a closest round number
-     */
-    const spriteLength = 800; // 918
-    for (
-      let i = 0, startTime = 0;
-      i < 36; //
-      i += 1, startTime += stepLength
-    ) {
-      sprite[i] = [startTime, spriteLength];
-    }
-
-    H$ = new Howl({
-      src: [pianoSpriteURL],
-      sprite,
-      volume: 0.75,
-      preload: true,
-      onload: () => {
-        console.group("@howler/onload");
-        if (featureState !== "!arming") {
-          /**
-           * This seems to be happening when you play several sprites in quick succession.
-           * I.e. when you do several `H$.play(x)` without stopping `H$.stop()` the current play first.
-           */
-          console.warn("onload miss-fire");
-          console.groupEnd();
-          return;
-        }
-
-        featureState = "armed";
-        // @ts-expect-error
-        console.log((window["H$"] = H$));
-        console.log(pianoSpriteURL);
-        console.groupEnd();
-      },
-      onunlock: () => {
-        console.group("@howler/onunlock");
-        featureState = "loud";
-        console.groupEnd();
-      },
-      onloaderror: (_, error) => {
-        console.group("@howler/onunlock");
-        featureState = "error";
-        console.error(error);
-        console.groupEnd();
-      },
-      onplayerror: (_, error) => {
-        console.group("@howler/onplayerror");
-        featureState = "error";
-        console.error(error);
-        console.groupEnd();
-      },
-    });
-
+    howlerArm();
     console.groupEnd();
   };
 
   let onWheel = (e: WheelEvent) => {
-    if (e.deltaY > 0) {
-      sharpsCurrentIndex =
-        sharpsCurrentIndex === 0 ? 11 : sharpsCurrentIndex - 1;
-    } else {
-      sharpsCurrentIndex =
-        sharpsCurrentIndex === 11 ? 0 : sharpsCurrentIndex + 1;
-    }
+    sharpsRotate(e.deltaY > 0 ? "down" : "up");
   };
 
   let onModeClick =
     (modeGI: number, modeDegSeqInd: number) => (e: MouseEvent) => {
       if (e.shiftKey) {
-        modeCurrentIndex = modeGI;
+        modeChange(modeGI);
       } else {
-        modeCurrentIndex = modeGI;
-        sharpsCurrentIndex = sharps[modeDegSeqInd].sGI;
+        modeChange(modeGI);
+        sharpsChange(modeDegSeqInd);
       }
     };
 
-  let selectedChord = $state("");
-  let selectedChordRid = $state<number | undefined>(undefined);
   let onChordClick =
     (chord: string, rid: number | undefined, chGI: number | undefined) =>
     () => {
       console.group("@effect/onChordClick");
-      selectedChord = chord;
-      selectedChordRid = rid;
+      sharpsSelectChord(chord, rid);
 
       const tonalInfo = tonalChordGet(chord);
       console.info(tonalInfo);
 
       if (featureState === "loud") {
-        H$.stop();
-        /** ! extremely important for `H$.play` to consume string as index` ! */
-        H$.play(`${chGI}`);
+        /**
+         * global index is guaranteed,
+         * but declared optional
+         * for convenience of expanding chord schema
+         * */
+        howlerPlay(chGI!);
       }
 
       console.groupEnd();
     };
 
-  let hoveredChord = $state("");
   let onChordHover = (chord: string) => () => {
-    hoveredChord = chord;
+    sharpsHighlightChord(chord);
   };
 
   // TODO: chord/modes uuids ?
