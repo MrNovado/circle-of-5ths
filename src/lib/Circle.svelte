@@ -83,8 +83,8 @@
     }
   };
 
-  let onChordHover = (chord: string) => () => {
-    SH_M$.sharpsHighlightChord(chord);
+  let onChordHover = (chord: string, rid: number | undefined) => () => {
+    SH_M$.sharpsHighlightChord(chord, rid);
   };
 
   // TODO: chord/modes uuids ?
@@ -211,6 +211,7 @@
             class:ch-current={SH_M$.selectedChord === chord.ch}
             class:ch-idle={SH_M$.selectedChord !== chord.ch}
             class:ch-hover={SH_M$.hoveredChord === chord.ch}
+            class:ch-hover-relevant={SH_M$.hoveredChordRid === chord.rId}
             class:ch-relevant={SH_M$.selectedChordRid === chord.rId}
             class:ch-current={CHORD_SEQ_TYPE[chordInd] === "dim" //
               ? CURRENT_SEQ[0] === chordSeqInd
@@ -223,8 +224,8 @@
               id="frame"
               d={SH_C[chordSeqInd][chordInd].d}
               on:click={onChordClick(chord.ch, chord.rId!, chord.chGI!)}
-              on:mouseenter={onChordHover(chord.ch)}
-              on:mouseleave={onChordHover("")}
+              on:mouseenter={onChordHover(chord.ch, chord.rId!)}
+              on:mouseleave={onChordHover("", undefined)}
             />
             <text
               x={SH_C[chordSeqInd][chordInd].x}
@@ -351,7 +352,11 @@
   }
 
   #chords .ch-hover #frame {
-    fill: silver;
+    fill: rgb(192, 141, 141);
+  }
+
+  #chords .ch-hover-relevant #frame {
+    fill: rgba(192, 141, 141, 0.3);
   }
 
   #chords .ch-relevant #frame {

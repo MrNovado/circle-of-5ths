@@ -30,8 +30,10 @@ export function sharpsMachine() {
   };
 
   let hoveredChord = $state("");
-  let sharpsHighlightChord = (chord: string) => {
+  let hoveredChordRid = $state<number | undefined>(undefined);
+  let sharpsHighlightChord = (chord: string, rid: number | undefined) => {
     hoveredChord = chord;
+    hoveredChordRid = rid;
   };
 
   return {
@@ -52,6 +54,9 @@ export function sharpsMachine() {
     sharpsSelectChord,
     get hoveredChord() {
       return hoveredChord;
+    },
+    get hoveredChordRid() {
+      return hoveredChordRid;
     },
     sharpsHighlightChord,
   };
