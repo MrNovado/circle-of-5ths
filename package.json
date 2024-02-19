@@ -25,7 +25,6 @@
   },
   "dependencies": {
     "@tonaljs/chord": "^6.0.0",
-    "clsx": "^2.1.0",
     "howler": "^2.2.4"
   }
 }

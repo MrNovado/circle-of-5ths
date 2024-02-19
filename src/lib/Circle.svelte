@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { clsx } from "clsx";
   import { get as tonalChordGet } from "@tonaljs/chord";
 
   import {
@@ -17,15 +16,6 @@
 
   import { CURRENT_SEQ } from "./common";
 
-  const CHORD_CLS = {
-    selected: "ch-selected",
-    idle: "ch-idle",
-    relevant: "ch-relevant",
-    hover: "ch-hover",
-    current: "ch-current",
-    currentKey: "ch-current-key",
-  };
-
   const CHORD_SEQ_TYPE = ["dim", "minor", "major"];
 
   let featureState = $state<
@@ -38,8 +28,8 @@
     onload: () => {
       if (featureState !== "!arming") {
         /**
-         * This seems to be happening when you play several sprites in quick succession.
-         * I.e. when you do several `H$.play(x)` without stopping `H$.stop()` the current play first.
+         * ! This seems to be happening when you play several sprites in quick succession.
+         * ! I.e. when you do several `H$.play(x)` without stopping `H$.stop()` the current play first.
          */
         console.warn("onload miss-fire");
         return;
@@ -83,23 +73,15 @@
       }
     };
 
-  let onChordClick =
-    (chord: string, rid: number | undefined, chGI: number | undefined) =>
-    () => {
-      SH_M$.sharpsSelectChord(chord, rid);
+  let onChordClick = (chord: string, rid: number, chGI: number) => () => {
+    const tonalInfo = tonalChordGet(chord);
+    console.info(tonalInfo.name);
 
-      const tonalInfo = tonalChordGet(chord);
-      console.info(tonalInfo.name);
-
-      if (featureState === "loud") {
-        /**
-         * global index is guaranteed,
-         * but declared optional
-         * for convenience of expanding chord schema
-         * */
-        HW_M$.howlerPlay(chGI!);
-      }
-    };
+    SH_M$.sharpsSelectChord(chord, rid);
+    if (featureState === "loud") {
+      HW_M$.howlerPlay(chGI!);
+    }
+  };
 
   let onChordHover = (chord: string) => () => {
     SH_M$.sharpsHighlightChord(chord);
@@ -108,7 +90,7 @@
   // TODO: chord/modes uuids ?
 </script>
 
-{#snippet chordSnippet(ch: string)}
+{#snippet chordLabel(ch: string)}
   {#if ch.includes("#") && ch.includes("°")}
     {ch.slice(0, ch.indexOf("#"))}<tspan
       >{ch.slice(ch.indexOf("#"), ch.indexOf("°"))}</tspan
@@ -226,31 +208,28 @@
         {#each chordSec as chord, chordInd (`${chord.chGI}-${chordInd}`)}
           <g
             id={CHORD_SEQ_TYPE[chordInd]}
-            class={clsx({
-              [CHORD_CLS.selected]: SH_M$.selectedChord === chord.ch,
-              [CHORD_CLS.idle]: SH_M$.selectedChord !== chord.ch,
-              [CHORD_CLS.hover]: SH_M$.hoveredChord === chord.ch,
-              [CHORD_CLS.relevant]: SH_M$.selectedChordRid === chord.rId,
-              [CHORD_CLS.current]:
-                CHORD_SEQ_TYPE[chordInd] === "dim" //
-                  ? CURRENT_SEQ[0] === chordSeqInd
-                  : CURRENT_SEQ.includes(chordSeqInd),
-              [CHORD_CLS.currentKey]: isFirstDegree(
-                MD_M$.modesDeg[chordSeqInd].v[chordInd].ch,
-              ),
-            })}
+            class:ch-current={SH_M$.selectedChord === chord.ch}
+            class:ch-idle={SH_M$.selectedChord !== chord.ch}
+            class:ch-hover={SH_M$.hoveredChord === chord.ch}
+            class:ch-relevant={SH_M$.selectedChordRid === chord.rId}
+            class:ch-current={CHORD_SEQ_TYPE[chordInd] === "dim" //
+              ? CURRENT_SEQ[0] === chordSeqInd
+              : CURRENT_SEQ.includes(chordSeqInd)}
+            class:ch-current-key={isFirstDegree(
+              MD_M$.modesDeg[chordSeqInd].v[chordInd].ch,
+            )}
           >
             <path
               id="frame"
               d={SH_C[chordSeqInd][chordInd].d}
-              on:click={onChordClick(chord.ch, chord.rId, chord.chGI)}
+              on:click={onChordClick(chord.ch, chord.rId!, chord.chGI!)}
               on:mouseenter={onChordHover(chord.ch)}
               on:mouseleave={onChordHover("")}
             />
             <text
               x={SH_C[chordSeqInd][chordInd].x}
               y={SH_C[chordSeqInd][chordInd].y}
-              >{@render chordSnippet(chord.ch)}</text
+              >{@render chordLabel(chord.ch)}</text
             >
           </g>
         {/each}
