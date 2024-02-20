@@ -12,8 +12,6 @@ Piano sprite is made using `Fl Studio`.
 
 Demo: https://mrnovado.github.io/circle-of-5ths/
 
-Inspired by: [Mike George youtube series about geometry of music](https://www.youtube.com/live/t2M0eTcsh6Y?si=_len-8ih2D_tP5cc&t=1592)
-
 Note: _all flat chords are changed to sharp variants for personal convinience_ (most piano UIs are sharp-first)
 
 ![image](https://github.com/MrNovado/circle-of-5ths/assets/4604289/ef66053e-c0e8-4e17-ac7b-1a5f7fabcdb9)
@@ -31,9 +29,4 @@ Interactive `circle of 5ths` to help explore music.
 - can play selected chords
   - must choose `go howler` at the beginning
   - piano sprite is built using FL Studio
-  - howler uses `html5` audio so having hardware acceleration is advised
-  - howler may hang trying to load sections of piano sprite (~6MB total)
-    - ~~disabled hardware acceleration is the main suspect~~
-    - ~~but reloading the app a few times usually resolves the issue regardless, so hard to tell exactly~~
-    - should be resolved via complete preloading at the start, but will see
   - see console for additional event/chord info
